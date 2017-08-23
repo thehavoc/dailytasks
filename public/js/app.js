@@ -31684,8 +31684,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
         this.api = new __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__["a" /* default */]();
-        this.addTasks();
-        console.log(this.tasks);
+        this.fetchTasks();
     },
     data: function data() {
         return {
@@ -31694,8 +31693,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
-        addTasks: function addTasks() {
-            this.tasks = this.api.getTasks('11');
+        fetchTasks: function fetchTasks() {
+            this.api.getTasks(this.getTasksCallback);
+        },
+        getTasksCallback: function getTasksCallback(response) {
+            this.tasks = response;
         }
     }
 });
@@ -31731,7 +31733,7 @@ var _class = function (_Api) {
 		var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this));
 
 		_this.apiUrls = {
-			tasks: 'http://dailytasks.int/tasks'
+			tasks: 'http://dailytasks.int/api/tasks'
 		};
 		return _this;
 	}
@@ -31780,7 +31782,7 @@ var _class = function () {
 			if (!url || !callback) {
 				return false;
 			}
-			console.log(url);
+
 			return new Promise(function (resolve) {
 				window.axios({
 					method: method,
@@ -31807,16 +31809,16 @@ var _class = function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "user-tasks"
   }, [_c('ul', {
     staticClass: "list-group"
-  }, [_c('li', {
-    staticClass: "list-group-item"
-  }, [_vm._v("\n            Cras justo odio\n        ")])])])
-}]}
+  }, _vm._l((_vm.tasks), function(task) {
+    return _c('li', {
+      staticClass: "list-group-item"
+    }, [_vm._v("\n            " + _vm._s(task.title) + "\n        ")])
+  }))])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

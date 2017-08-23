@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the daily tasks of the logged in user.
+     */
+    public function tasks()
+    {
+        return $this->hasMany('App\Task');
+    }    
 }

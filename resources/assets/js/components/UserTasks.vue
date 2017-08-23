@@ -1,8 +1,8 @@
 <template>
     <div class="user-tasks">
         <ul class="list-group">
-            <li class="list-group-item">
-                Cras justo odio
+            <li class="list-group-item" v-for="task in tasks">
+                {{ task.title }}
             </li>
         </ul>        
     </div>
@@ -15,8 +15,7 @@
     export default {
         mounted() {
             this.api = new ApiTasks();
-            this.addTasks();
-            console.log(this.tasks);
+            this.fetchTasks();
         },
         data() {
             return {
@@ -24,9 +23,12 @@
             }
         },
         methods: {
-            addTasks: function() {
-                this.tasks = this.api.getTasks('11');
-            }  
+            fetchTasks: function() {
+                this.api.getTasks(this.getTasksCallback);
+            },
+            getTasksCallback: function(response) {
+                this.tasks = response;
+            },            
         }
     }
 </script>

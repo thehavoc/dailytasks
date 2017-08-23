@@ -12,7 +12,7 @@ export default class {
 		if(!url || !callback) {
 			return false;
 		}
-		console.log(url);
+
 		return new Promise((resolve) => {
 			window.axios({
 				method: method,

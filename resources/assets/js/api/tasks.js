@@ -10,7 +10,7 @@ export default class extends Api {
 		super();
 
 		this.apiUrls = {
-		    tasks: 'http://dailytasks.int/tasks'
+		    tasks: 'http://dailytasks.int/api/tasks'
 		}
 	}
 
