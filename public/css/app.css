@@ -8350,3 +8350,7 @@ button.close {
   }
 }
 
+.completed-task-text {
+  text-decoration: line-through;
+}
+

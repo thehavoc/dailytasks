@@ -8,14 +8,19 @@ export default class extends Api {
 
 	constructor() {
 		super();
-
+		
 		this.apiUrls = {
-		    tasks: 'http://dailytasks.int/api/tasks'
+		    tasks: this.baseApiUrl + 'tasks/',
+		    updateTask: this.baseApiUrl + 'updateTask/'
 		}
 	}
 
     getTasks(callback) {
         super.execute('', this.apiUrls.tasks, callback, 'get');
     }
+
+    updateTask(callback, task) {
+        super.execute(task, this.apiUrls.updateTask + task.id , callback, 'patch');
+    }    
 
 }

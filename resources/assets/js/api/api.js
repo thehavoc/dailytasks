@@ -4,6 +4,10 @@
 
 export default class {
 
+	constructor() {
+		this.baseApiUrl = 'http://dailytasks.int/api/';
+	}
+
 	/**
 	 * Send a request to a given URL. 
 	 * A callback function is executed after the request.
@@ -25,7 +29,7 @@ export default class {
 				resolve(response.data);
 			})
 			.catch(function (errors) {
-				callback(errors.response);
+				alert('Someething went wrong!');
 			});	
 		});
 	}

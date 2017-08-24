@@ -13,6 +13,5 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/tasks', function (Request $request) {
-	return Auth::user()->tasks()->get();
-});
+Route::get('tasks', 'ApiController@getTasks');
+Route::patch('updateTask/{task}', 'ApiController@updateTask');

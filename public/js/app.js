@@ -31677,29 +31677,61 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        this.api = new __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__["a" /* default */]();
-        this.fetchTasks();
-    },
-    data: function data() {
-        return {
-            tasks: Object
-        };
-    },
+	mounted: function mounted() {
+		this.api = new __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__["a" /* default */]();
+		this.fetchTasks();
+	},
+	data: function data() {
+		return {
+			tasks: []
+		};
+	},
 
-    methods: {
-        fetchTasks: function fetchTasks() {
-            this.api.getTasks(this.getTasksCallback);
-        },
-        getTasksCallback: function getTasksCallback(response) {
-            this.tasks = response;
-        }
-    }
+	methods: {
+		fetchTasks: function fetchTasks() {
+			this.api.getTasks(this.getTasksCallback);
+		},
+		getTasksCallback: function getTasksCallback(response) {
+			this.tasks = response;
+		},
+		changeCompleteStatus: function changeCompleteStatus(task, status) {
+			task.completed = status;
+			this.api.updateTask(this.updateTaskCallback, task);
+		},
+		updateTaskCallback: function updateTaskCallback(response) {
+
+			// console.log(response);
+		}
+	},
+	computed: {
+		completedTasks: function completedTasks() {
+			return this.tasks.filter(function (task) {
+				return task.completed;
+			});
+		},
+		todoTasks: function todoTasks() {
+			return this.tasks.filter(function (task) {
+				return !task.completed;
+			});
+		}
+	}
 });
 
 /***/ }),
@@ -31725,27 +31757,33 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var _class = function (_Api) {
-	_inherits(_class, _Api);
+  _inherits(_class, _Api);
 
-	function _class() {
-		_classCallCheck(this, _class);
+  function _class() {
+    _classCallCheck(this, _class);
 
-		var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this));
+    var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this));
 
-		_this.apiUrls = {
-			tasks: 'http://dailytasks.int/api/tasks'
-		};
-		return _this;
-	}
+    _this.apiUrls = {
+      tasks: _this.baseApiUrl + 'tasks/',
+      updateTask: _this.baseApiUrl + 'updateTask/'
+    };
+    return _this;
+  }
 
-	_createClass(_class, [{
-		key: 'getTasks',
-		value: function getTasks(callback) {
-			_get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'execute', this).call(this, '', this.apiUrls.tasks, callback, 'get');
-		}
-	}]);
+  _createClass(_class, [{
+    key: 'getTasks',
+    value: function getTasks(callback) {
+      _get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'execute', this).call(this, '', this.apiUrls.tasks, callback, 'get');
+    }
+  }, {
+    key: 'updateTask',
+    value: function updateTask(callback, task) {
+      _get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'execute', this).call(this, task, this.apiUrls.updateTask + task.id, callback, 'patch');
+    }
+  }]);
 
-	return _class;
+  return _class;
 }(__WEBPACK_IMPORTED_MODULE_0__api_js__["a" /* default */]);
 
 /* harmony default export */ __webpack_exports__["a"] = (_class);
@@ -31766,16 +31804,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var _class = function () {
 	function _class() {
 		_classCallCheck(this, _class);
+
+		this.baseApiUrl = 'http://dailytasks.int/api/';
 	}
+
+	/**
+  * Send a request to a given URL. 
+  * A callback function is executed after the request.
+  */
+
 
 	_createClass(_class, [{
 		key: 'execute',
-
-
-		/**
-   * Send a request to a given URL. 
-   * A callback function is executed after the request.
-   */
 		value: function execute(data, url, callback) {
 			var method = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'get';
 
@@ -31793,7 +31833,7 @@ var _class = function () {
 
 					resolve(response.data);
 				}).catch(function (errors) {
-					callback(errors.response);
+					alert('Someething went wrong!');
 				});
 			});
 		}
@@ -31811,12 +31851,34 @@ var _class = function () {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "user-tasks"
-  }, [_c('ul', {
+  }, [_c('h4', [_vm._v("To do tasks")]), _vm._v(" "), _c('ul', {
     staticClass: "list-group"
-  }, _vm._l((_vm.tasks), function(task) {
+  }, _vm._l((_vm.todoTasks), function(task) {
     return _c('li', {
       staticClass: "list-group-item"
-    }, [_vm._v("\n            " + _vm._s(task.title) + "\n        ")])
+    }, [_vm._v("\n\t\t\t" + _vm._s(task.title) + "\n\n\t\t\t"), _c('button', {
+      staticClass: "pull-right",
+      on: {
+        "click": function($event) {
+          _vm.changeCompleteStatus(task, 1)
+        }
+      }
+    }, [_vm._v("Complete")])])
+  })), _vm._v(" "), _c('h4', [_vm._v("Completed tasks")]), _vm._v(" "), _c('ul', {
+    staticClass: "list-group"
+  }, _vm._l((_vm.completedTasks), function(task) {
+    return _c('li', {
+      staticClass: "list-group-item"
+    }, [_c('span', {
+      staticClass: "completed-task-text"
+    }, [_vm._v(_vm._s(task.title))]), _vm._v(" "), _c('button', {
+      staticClass: "pull-right",
+      on: {
+        "click": function($event) {
+          _vm.changeCompleteStatus(task, 0)
+        }
+      }
+    }, [_vm._v("Activate")])])
   }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
