@@ -31667,6 +31667,8 @@ module.exports = function normalizeComponent (
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Task_vue__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Task_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Task_vue__);
 //
 //
 //
@@ -31685,15 +31687,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+	components: { Task: __WEBPACK_IMPORTED_MODULE_1__Task_vue___default.a },
+
 	mounted: function mounted() {
 		this.api = new __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__["a" /* default */]();
 		this.fetchTasks();
@@ -31704,22 +31705,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		};
 	},
 
+
 	methods: {
 		fetchTasks: function fetchTasks() {
 			this.api.getTasks(this.getTasksCallback);
 		},
 		getTasksCallback: function getTasksCallback(response) {
 			this.tasks = response;
-		},
-		changeCompleteStatus: function changeCompleteStatus(task, status) {
-			task.completed = status;
-			this.api.updateTask(this.updateTaskCallback, task);
-		},
-		updateTaskCallback: function updateTaskCallback(response) {
-
-			// console.log(response);
 		}
 	},
+
 	computed: {
 		completedTasks: function completedTasks() {
 			return this.tasks.filter(function (task) {
@@ -31856,29 +31851,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.todoTasks), function(task) {
     return _c('li', {
       staticClass: "list-group-item"
-    }, [_vm._v("\n\t\t\t" + _vm._s(task.title) + "\n\n\t\t\t"), _c('button', {
-      staticClass: "pull-right",
-      on: {
-        "click": function($event) {
-          _vm.changeCompleteStatus(task, 1)
-        }
+    }, [_c('Task', {
+      attrs: {
+        "task": task
       }
-    }, [_vm._v("Complete")])])
+    })], 1)
   })), _vm._v(" "), _c('h4', [_vm._v("Completed tasks")]), _vm._v(" "), _c('ul', {
     staticClass: "list-group"
-  }, _vm._l((_vm.completedTasks), function(task) {
+  }, _vm._l((_vm.completedTasks), function(task, index) {
     return _c('li', {
       staticClass: "list-group-item"
-    }, [_c('span', {
-      staticClass: "completed-task-text"
-    }, [_vm._v(_vm._s(task.title))]), _vm._v(" "), _c('button', {
-      staticClass: "pull-right",
-      on: {
-        "click": function($event) {
-          _vm.changeCompleteStatus(task, 0)
-        }
+    }, [_c('Task', {
+      attrs: {
+        "task": task
       }
-    }, [_vm._v("Activate")])])
+    })], 1)
   }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -31894,6 +31881,130 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(36)(
+  /* script */
+  __webpack_require__(52),
+  /* template */
+  __webpack_require__(53),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Library/WebServer/Documents/dailytasks/resources/assets/js/components/Task.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Task.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6a10b024", Component.options)
+  } else {
+    hotAPI.reload("data-v-6a10b024", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__ = __webpack_require__(38);
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['task'],
+
+	mounted: function mounted() {
+		this.api = new __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__["a" /* default */]();
+	},
+
+
+	methods: {
+		changeCompleteStatus: function changeCompleteStatus(task, status) {
+			task.completed = !task.completed;
+			this.api.updateTask(this.updateTaskCallback, task);
+		},
+		updateTaskCallback: function updateTaskCallback(response) {
+			// Flash message
+		}
+	},
+
+	computed: {
+		button: function button() {
+
+			if (this.task.completed) {
+				return 'Active';
+			}
+
+			return 'Complete';
+		}
+	}
+});
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "user-task"
+  }, [_c('span', {
+    class: [_vm.task.completed ? 'completed-task-text' : '']
+  }, [_vm._v(_vm._s(_vm.task.title))]), _vm._v(" "), _c('button', {
+    staticClass: "pull-right",
+    on: {
+      "click": function($event) {
+        _vm.changeCompleteStatus(_vm.task)
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.button))])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-6a10b024", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

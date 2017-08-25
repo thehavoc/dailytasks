@@ -27,7 +27,6 @@ class ApiController extends Controller
      */	
     public function updateTask(UpdateTaskRequest $request, Task $task) 
     {	
-        
         $task->update($request->all());
         return $task;    	
     }	
