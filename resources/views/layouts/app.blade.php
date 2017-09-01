@@ -75,6 +75,9 @@
     </div>
 
     <!-- Scripts -->
+    <script>
+        window.apiUrl = "<?php echo url('/api') ?>/";
+    </script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

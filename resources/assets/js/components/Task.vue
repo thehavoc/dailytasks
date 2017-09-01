@@ -2,7 +2,7 @@
 	<div class="user-task">            
 		<span v-bind:class="[task.completed ? 'completed-task-text' : '']">{{ task.title }}</span>
 
-		<button v-on:click="changeCompleteStatus(task)" class="pull-right">{{ button }}</button>		
+		<button v-on:click="changeCompleteStatus(task)" class="pull-right btn btn-primary btn-xs">{{ button }}</button>		
 	</div>
 </template>
 
@@ -22,6 +22,7 @@
 				task.completed = !task.completed;
 				this.api.updateTask(this.updateTaskCallback, task);
 			},
+			
 			updateTaskCallback(response) {
 				// Flash message
 			}

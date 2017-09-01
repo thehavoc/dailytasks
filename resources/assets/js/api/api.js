@@ -5,7 +5,7 @@
 export default class {
 
 	constructor() {
-		this.baseApiUrl = 'http://dailytasks.int/api/';
+		this.baseApiUrl = window.apiUrl;
 	}
 
 	/**
@@ -29,7 +29,7 @@ export default class {
 				resolve(response.data);
 			})
 			.catch(function (errors) {
-				alert('Someething went wrong!');
+				alert(errors);
 			});	
 		});
 	}

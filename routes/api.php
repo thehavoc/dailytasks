@@ -13,5 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('tasks', 'ApiController@getTasks');
+Route::get('tasks/{date}', 'ApiController@getTasks');
 Route::patch('updateTask/{task}', 'ApiController@updateTask');
+Route::post('addQuickTask', 'ApiController@addQuickTask');
