@@ -2,6 +2,6 @@
 
 @section('content')
 
-<UserTasks></UserTasks>
+<AddTask></AddTask>
 
 @endsection

@@ -8358,19 +8358,57 @@ button.close {
   margin: 0 0 22px;
 }
 
-.page-section {
+.add-task {
   margin-bottom: 25px;
 }
 
-.add-task .show-task-form {
-  margin-right: 20px;
-}
-
-.add-task-form .form-group {
-  width: 50%;
+.add-task .add-task-btn {
+  width: 100%;
 }
 
 .add-task-form .form-group input {
-  width: 100%;
+  width: 300px;
+  max-width: 300px;
+}
+
+.user-tasks .vdp-datepicker {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  width: 200px;
+}
+
+.user-tasks .vdp-datepicker__calendar {
+  right: 0;
+}
+
+@media only screen and (max-device-width: 1024px) {
+  .add-task .add-task-btn {
+    width: auto;
+  }
+
+  .add-task-form .form-group {
+    margin: 15px 0 0;
+  }
+}
+
+@media only screen and (max-device-width: 768px) {
+  .user-tasks .vdp-datepicker {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin-bottom: 15px;
+  }
+
+  .user-tasks .vdp-datepicker__calendar {
+    right: auto;
+    left: 0;
+    width: 250px;
+  }
+
+  .add-task-form .form-group input {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 }
 

@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('usertasks', require('./components/UserTasks.vue'));
+Vue.component('addtask', require('./components/AddTask.vue'));
 
 const app = new Vue({
     el: '#app'

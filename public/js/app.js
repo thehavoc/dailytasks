@@ -16563,6 +16563,7 @@ window.Vue = __webpack_require__(153);
  */
 
 Vue.component('usertasks', __webpack_require__(154));
+Vue.component('addtask', __webpack_require__(179));
 
 var app = new Vue({
   el: '#app'
@@ -47342,12 +47343,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -47635,6 +47630,10 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_Tasks_js__ = __webpack_require__(12);
+//
+//
+//
+//
 //
 //
 //
@@ -47956,22 +47955,26 @@ webpackContext.id = 162;
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "add-task"
+    staticClass: "add-task row"
+  }, [_c('div', {
+    staticClass: "col-md-2"
   }, [_c('button', {
-    staticClass: "btn btn-success btn-default pull-left show-task-form",
+    staticClass: "btn btn-success btn-default add-task-btn",
     on: {
       "click": function($event) {
         _vm.showForm = !_vm.showForm
       }
     }
-  }, [_vm._v("Add a quick daily task")]), _vm._v(" "), _c('form', {
+  }, [_vm._v("Add a quick task")])]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-10"
+  }, [_c('form', {
     directives: [{
       name: "show",
       rawName: "v-show",
       value: (_vm.showForm),
       expression: "showForm"
     }],
-    staticClass: "form-inline add-task-form"
+    staticClass: "add-task-form form-inline"
   }, [_c('div', {
     staticClass: "form-group"
   }, [_c('input', {
@@ -47995,12 +47998,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.task.title = $event.target.value
       }
     }
-  })]), _vm._v(" "), _c('button', {
+  }), _vm._v(" "), _c('button', {
     staticClass: "btn btn-default",
     on: {
       "click": _vm.addTask
     }
-  }, [_vm._v("Submit")])])])
+  }, [_vm._v("Submit")])])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -48024,19 +48027,6 @@ module.exports=function(e){function t(r){if(n[r])return n[r].exports;var a=n[r]=
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "user-tasks"
-  }, [_c('div', {
-    staticClass: "row page-section"
-  }, [_c('div', {
-    staticClass: "col-md-8"
-  }, [_c('NewQuickTask', {
-    attrs: {
-      "date": _vm.date
-    },
-    on: {
-      "addedTask": _vm.addTask
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticClass: "col-md-4"
   }, [_c('datepicker', {
     attrs: {
       "value": _vm.date,
@@ -48045,7 +48035,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "selected": _vm.fetchDateTasks
     }
-  })], 1)]), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), _c('NewQuickTask', {
+    attrs: {
+      "date": _vm.date
+    },
+    on: {
+      "addedTask": _vm.addTask
+    }
+  }), _vm._v(" "), _c('div', {
     staticClass: "tasks-list"
   }, [_c('h4', [_vm._v("To do tasks")]), _vm._v(" "), _c('ul', {
     staticClass: "list-group"
@@ -48067,7 +48064,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "task": task
       }
     })], 1)
-  }))])])
+  }))])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -48082,6 +48079,119 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(3)(
+  /* script */
+  __webpack_require__(180),
+  /* template */
+  __webpack_require__(181),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Library/WebServer/Documents/dailytasks/resources/assets/js/components/AddTask.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] AddTask.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4e805d26", Component.options)
+  } else {
+    hotAPI.reload("data-v-4e805d26", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 180 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_Tasks_js__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuejs_datepicker__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuejs_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuejs_datepicker__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_tasks_js__ = __webpack_require__(4);
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_Tasks_js__["a" /* default */]],
+
+	components: { Datepicker: __WEBPACK_IMPORTED_MODULE_1_vuejs_datepicker___default.a },
+
+	mounted: function mounted() {
+		this.api = new __WEBPACK_IMPORTED_MODULE_2__api_tasks_js__["a" /* default */]();
+	},
+	data: function data() {
+		return {};
+	},
+
+
+	methods: {},
+
+	computed: {},
+
+	watch: {}
+
+});
+
+/***/ }),
+/* 181 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "add-task"
+  }, [_vm._v("\n\tForm\n")])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-4e805d26", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

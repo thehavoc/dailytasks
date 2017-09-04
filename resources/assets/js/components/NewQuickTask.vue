@@ -1,15 +1,19 @@
 <template>
-	<div class="add-task">
+	<div class="add-task row">
 
-		<button v-on:click="showForm = !showForm" class="btn btn-success btn-default pull-left show-task-form">Add a quick daily task</button>
-				
-		<form v-show="showForm" class="form-inline add-task-form">
-			<div class="form-group">
-				<input type="text" v-model="task.title" class="form-control" placeholder="Title">
-			</div>
+		<div class="col-md-2">
+			<button v-on:click="showForm = !showForm" class="btn btn-success btn-default add-task-btn">Add a quick task</button>
+		</div>
 
-			<button v-on:click="addTask" class="btn btn-default">Submit</button>
-		</form>
+		<div class="col-md-10">
+			<form v-show="showForm" class="add-task-form form-inline">
+				<div class="form-group">
+					<input type="text" v-model="task.title" class="form-control" placeholder="Title">
+
+					<button v-on:click="addTask" class="btn btn-default">Submit</button>
+				</div>
+			</form>
+		</div>
 	</div>
 </template>
 

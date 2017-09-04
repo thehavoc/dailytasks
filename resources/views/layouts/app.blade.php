@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li><a href="{{ route('add-task') }}">Add Task</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -71,7 +71,18 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">                
+                        <div class="panel-body">
+                        <h3 class="page-title">{{ $title }}</h3>
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
     </div>
 
     <!-- Scripts -->

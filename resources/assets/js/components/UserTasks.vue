@@ -1,15 +1,9 @@
 <template>
 	<div class="user-tasks">
 		
-		<div class="row page-section">
-			<div class="col-md-8">
-				<NewQuickTask :date="date" @addedTask="addTask"></NewQuickTask>
-			</div>			
-			
-			<div class="col-md-4">
-				<datepicker :value="date" v-on:selected="fetchDateTasks" input-class="form-control"></datepicker>
-			</div>			
-		</div>
+		<datepicker :value="date" v-on:selected="fetchDateTasks" input-class="form-control"></datepicker>
+		
+		<NewQuickTask :date="date" @addedTask="addTask"></NewQuickTask>
 
 		<div class="tasks-list">
 			<h4>To do tasks</h4>
