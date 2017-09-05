@@ -1,6 +1,10 @@
 import moment from 'moment'
+import ApiTasks from '../api/tasks.js';	
+import Datepicker from 'vuejs-datepicker';
 
 export default {
+	
+	components: { Datepicker },
 
 	methods: {
 
@@ -22,7 +26,12 @@ export default {
 	            added_to: '',
 	            completed: 0
 	        }
-	    }		
+	    },
+
+	    executeDefaultAddTaskActions() {
+			this.api = new ApiTasks();
+			this.task = this.getDefaultTaskProperties();	    	
+	    }	
 
 	}
 

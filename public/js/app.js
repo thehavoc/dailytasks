@@ -5113,9 +5113,16 @@ module.exports = defaults;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_tasks_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuejs_datepicker__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuejs_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vuejs_datepicker__);
+
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+
+	components: { Datepicker: __WEBPACK_IMPORTED_MODULE_2_vuejs_datepicker___default.a },
 
 	methods: {
 
@@ -5137,6 +5144,10 @@ module.exports = defaults;
 				added_to: '',
 				completed: 0
 			};
+		},
+		executeDefaultAddTaskActions: function executeDefaultAddTaskActions() {
+			this.api = new __WEBPACK_IMPORTED_MODULE_1__api_tasks_js__["a" /* default */]();
+			this.task = this.getDefaultTaskProperties();
 		}
 	}
 
@@ -47647,8 +47658,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_Tasks_js__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_Tasks_js__ = __webpack_require__(5);
 //
 //
 //
@@ -47668,7 +47678,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
 
 
 
@@ -47676,7 +47685,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['date'],
 
-	mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_Tasks_js__["a" /* default */]],
+	mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_Tasks_js__["a" /* default */]],
 
 	data: function data() {
 		return {
@@ -47686,8 +47695,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		};
 	},
 	mounted: function mounted() {
-		this.api = new __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__["a" /* default */]();
-		this.task = this.getDefaultTaskProperties();
+		this.executeDefaultAddTaskActions();
 	},
 
 
@@ -48130,9 +48138,6 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_Tasks_js__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuejs_datepicker__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuejs_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuejs_datepicker__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_tasks_js__ = __webpack_require__(3);
 //
 //
 //
@@ -48152,21 +48157,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-
-
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_Tasks_js__["a" /* default */]],
 
-	components: { Datepicker: __WEBPACK_IMPORTED_MODULE_1_vuejs_datepicker___default.a },
-
 	mounted: function mounted() {
-		this.api = new __WEBPACK_IMPORTED_MODULE_2__api_tasks_js__["a" /* default */]();
-		this.task = this.getDefaultTaskProperties();
-		console.log;
+		this.executeDefaultAddTaskActions();
 	},
 	data: function data() {
 		return {

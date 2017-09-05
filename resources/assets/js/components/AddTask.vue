@@ -18,21 +18,14 @@
 </template>
 
 <script>
-
-	import TasksMixin from '../mixins/Tasks.js';
-	import Datepicker from 'vuejs-datepicker';
-	import ApiTasks from '../api/tasks.js';
+	import TasksMixin from '../mixins/Tasks.js';	
 	
-
 	export default {
 		mixins: [TasksMixin],
 
-		components: { Datepicker },
 
 		mounted() {
-			this.api = new ApiTasks();
-			this.task = this.getDefaultTaskProperties();
-			console.log
+			this.executeDefaultAddTaskActions();
 		},
 
 		data() {

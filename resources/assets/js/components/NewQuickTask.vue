@@ -19,7 +19,6 @@
 
 <script>
 
-	import ApiTasks from '../api/tasks.js';
 	import TasksMixin from '../mixins/Tasks.js';
 
 	export default {
@@ -36,8 +35,7 @@
 		},
 
 		mounted() {
-			this.api = new ApiTasks();
-			this.task = this.getDefaultTaskProperties();
+			this.executeDefaultAddTaskActions();
 		},
 
 		methods: {
