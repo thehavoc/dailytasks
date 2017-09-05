@@ -14,7 +14,15 @@ export default {
 
 		getDateFormat: function() {
 			return 'YYYY-MM-DD';
-		}
+		},
+
+	    getDefaultTaskProperties() {
+	        return {
+	            title: '',
+	            added_to: '',
+	            completed: 0
+	        }
+	    }		
 
 	}
 

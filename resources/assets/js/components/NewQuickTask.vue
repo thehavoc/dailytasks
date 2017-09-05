@@ -29,11 +29,7 @@
 
 		data() {
 			return {
-				task: {
-					title: '',
-					added_to: '',
-					completed: 0
-				},
+				task: Object,
 
 				showForm: false
 			}
@@ -41,6 +37,7 @@
 
 		mounted() {
 			this.api = new ApiTasks();
+			this.task = this.getDefaultTaskProperties();
 		},
 
 		methods: {

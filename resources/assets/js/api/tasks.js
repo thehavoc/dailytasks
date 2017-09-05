@@ -12,7 +12,7 @@ export default class extends Api {
         this.apiUrls = {
             tasks: this.baseApiUrl + 'tasks/',
             updateTask: this.baseApiUrl + 'updateTask/',
-            addQuickTask: this.baseApiUrl + 'addQuickTask'
+            addTask: this.baseApiUrl + 'addTask',
         }
     }
 
@@ -25,8 +25,12 @@ export default class extends Api {
         super.execute(task, this.apiUrls.updateTask + task.id , callback, 'patch');
     }    
 
-    addTask(callback, task) {
+    addQuickTask(callback, task) {
         super.execute(task, this.apiUrls.addQuickTask , callback, 'post');
-    }   
+    }
+
+    addTask(callback, task) {
+        super.execute(task, this.apiUrls.addTask , callback, 'post');
+    }
 
 }

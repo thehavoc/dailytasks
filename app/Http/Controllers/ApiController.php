@@ -24,7 +24,7 @@ class ApiController extends Controller
      *
      * @param UpdateTaskRequest $request
      * @param Task $task
-     * @return object
+     * @return Collection
      */	
     public function updateTask(UpdateTaskRequest $request, Task $task) 
     {	
@@ -37,12 +37,13 @@ class ApiController extends Controller
      *
      * @param UserRequest $request
      * @param Task $task
-     * @return object
+     * @return Collection
      */ 
-    public function addQuickTask(Request $request, Task $task) 
+    public function addTask(Request $request, Task $task) 
     {   
         $request['user_id'] = Auth::id();
         $task = $task->create($request->all());
         return $task;       
     }      
+
 }
