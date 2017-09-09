@@ -7,8 +7,13 @@
 			</div>
 
 			<div class="form-group">
+				<label>Description</label>
+				<textarea class="form-control" v-model="task.description"></textarea>
+			</div>
+
+			<div class="form-group">
 				<label>Date</label>
-				<datepicker :value="task.date" v-on:selected="setTaskDate" input-class="form-control"></datepicker>
+				<datepicker :value="task.added_to" v-on:selected="setTaskDate" input-class="form-control"></datepicker>
 			</div>
 
 			<button v-on:click="addTask" class="btn btn-default">Submit</button>
@@ -26,6 +31,7 @@
 
 		mounted() {
 			this.executeDefaultAddTaskActions();
+			this.task.added_to = this.getCurrentDate();
 		},
 
 		data() {

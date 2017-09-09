@@ -24,7 +24,8 @@ export default {
 	        return {
 	            title: '',
 	            added_to: '',
-	            completed: 0
+	            completed: 0,
+	            description: ''
 	        }
 	    },
 

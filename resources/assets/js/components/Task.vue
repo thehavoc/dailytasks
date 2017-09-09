@@ -1,8 +1,16 @@
 <template>
 	<div class="user-task">            
-		<span v-bind:class="[task.completed ? 'completed-task-text' : '']">{{ task.title }}</span>
+		<div class="task-heading" v-bind:class="[showDescription ? 'expanded-task' : '']">
+			<a href="#" v-on:click="toggleDescription" v-bind:class="[task.completed ? 'completed-task-text' : '']">{{ task.title }}</a>
 
-		<button v-on:click="changeCompleteStatus(task)" class="pull-right btn btn-primary btn-xs">{{ button }}</button>		
+			<button v-on:click="changeCompleteStatus(task)" class="pull-right btn btn-primary btn-xs">{{ button }}</button>		
+		</div>
+
+		<div class="task-description">
+			<p v-show="showDescription && task.description">
+				{{ task.description }}
+			</p>
+		</div>
 	</div>
 </template>
 
@@ -17,6 +25,12 @@
 			this.api = new ApiTasks();
 		},
 
+		data() {
+			return {
+				showDescription: false
+			}
+		},
+
 		methods: {
 			changeCompleteStatus: function(task, status) {
 				task.completed = !task.completed;
@@ -25,6 +39,12 @@
 			
 			updateTaskCallback(response) {
 				// Flash message
+			},
+
+			toggleDescription(e) {
+				e.preventDefault();
+
+				this.showDescription = !this.showDescription;
 			}
 		},
 

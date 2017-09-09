@@ -21,6 +21,12 @@
 .user-tasks .vdp-datepicker { position: absolute; top: 15px; right: 30px; width: 200px; }
 .user-tasks .vdp-datepicker__calendar { right: 0; }
 
+.user-tasks .expanded-task a { font-weight: bold; }
+
+.user-tasks a:focus,
+.user-tasks a:hover { text-decoration: none; }
+
+.task-description p { border-top: 1px solid #d3e0e9; margin-top: 10px; padding-top: 10px; }
 
 @media only screen and (max-device-width: 1024px) {
 	.add-task .add-task-btn { width: auto; }
