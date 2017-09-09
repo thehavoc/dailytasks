@@ -43,7 +43,7 @@ class ApiController extends Controller
     {   
         $request['user_id'] = Auth::id();
         $task = $task->create($request->all());
-        return $task;       
+        return $task;
     }      
 
 }

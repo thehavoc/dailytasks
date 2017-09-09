@@ -4942,72 +4942,6 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 /* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_js__ = __webpack_require__(157);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * API calls related to tasks
- */
-
-
-
-var _class = function (_Api) {
-    _inherits(_class, _Api);
-
-    function _class() {
-        _classCallCheck(this, _class);
-
-        var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this));
-
-        _this.apiUrls = {
-            tasks: _this.baseApiUrl + 'tasks/',
-            updateTask: _this.baseApiUrl + 'updateTask/',
-            addTask: _this.baseApiUrl + 'addTask'
-        };
-        return _this;
-    }
-
-    _createClass(_class, [{
-        key: 'getTasks',
-        value: function getTasks(callback, date) {
-
-            _get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'execute', this).call(this, '', this.apiUrls.tasks + date, callback, 'get');
-        }
-    }, {
-        key: 'updateTask',
-        value: function updateTask(callback, task) {
-            _get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'execute', this).call(this, task, this.apiUrls.updateTask + task.id, callback, 'patch');
-        }
-    }, {
-        key: 'addQuickTask',
-        value: function addQuickTask(callback, task) {
-            _get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'execute', this).call(this, task, this.apiUrls.addQuickTask, callback, 'post');
-        }
-    }, {
-        key: 'addTask',
-        value: function addTask(callback, task) {
-            _get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'execute', this).call(this, task, this.apiUrls.addTask, callback, 'post');
-        }
-    }]);
-
-    return _class;
-}(__WEBPACK_IMPORTED_MODULE_0__api_js__["a" /* default */]);
-
-/* harmony default export */ __webpack_exports__["a"] = (_class);
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5107,13 +5041,79 @@ module.exports = defaults;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(138)))
 
 /***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_js__ = __webpack_require__(157);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * API calls related to tasks
+ */
+
+
+
+var _class = function (_Api) {
+    _inherits(_class, _Api);
+
+    function _class() {
+        _classCallCheck(this, _class);
+
+        var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this));
+
+        _this.apiUrls = {
+            tasks: _this.baseApiUrl + 'tasks/',
+            updateTask: _this.baseApiUrl + 'updateTask/',
+            addTask: _this.baseApiUrl + 'addTask'
+        };
+        return _this;
+    }
+
+    _createClass(_class, [{
+        key: 'getTasks',
+        value: function getTasks(callback, date) {
+
+            _get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'execute', this).call(this, '', this.apiUrls.tasks + date, callback, 'get');
+        }
+    }, {
+        key: 'updateTask',
+        value: function updateTask(callback, task) {
+            _get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'execute', this).call(this, task, this.apiUrls.updateTask + task.id, callback, 'patch');
+        }
+    }, {
+        key: 'addQuickTask',
+        value: function addQuickTask(callback, task) {
+            _get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'execute', this).call(this, task, this.apiUrls.addQuickTask, callback, 'post');
+        }
+    }, {
+        key: 'addTask',
+        value: function addTask(callback, task) {
+            _get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'execute', this).call(this, task, this.apiUrls.addTask, callback, 'post');
+        }
+    }]);
+
+    return _class;
+}(__WEBPACK_IMPORTED_MODULE_0__api_js__["a" /* default */]);
+
+/* harmony default export */ __webpack_exports__["a"] = (_class);
+
+/***/ }),
 /* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_tasks_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_tasks_js__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuejs_datepicker__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuejs_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vuejs_datepicker__);
 
@@ -36148,7 +36148,7 @@ module.exports = __webpack_require__(135);
 var utils = __webpack_require__(1);
 var bind = __webpack_require__(8);
 var Axios = __webpack_require__(137);
-var defaults = __webpack_require__(4);
+var defaults = __webpack_require__(3);
 
 /**
  * Create an instance of Axios
@@ -36231,7 +36231,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(4);
+var defaults = __webpack_require__(3);
 var utils = __webpack_require__(1);
 var InterceptorManager = __webpack_require__(147);
 var dispatchRequest = __webpack_require__(148);
@@ -36953,7 +36953,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(1);
 var transformData = __webpack_require__(149);
 var isCancel = __webpack_require__(11);
-var defaults = __webpack_require__(4);
+var defaults = __webpack_require__(3);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -47337,7 +47337,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Task_vue__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Task_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Task_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__NewQuickTask_vue__ = __webpack_require__(161);
@@ -47542,7 +47542,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_tasks_js__ = __webpack_require__(4);
 //
 //
 //
