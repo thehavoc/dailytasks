@@ -1,9 +1,16 @@
 <template>
 	<div class="user-task">            
 		<div class="task-heading" v-bind:class="[showDescription ? 'expanded-task' : '']">
-			<a href="#" v-on:click="toggleDescription" v-bind:class="[task.completed ? 'completed-task-text' : '']">{{ task.title }}</a>
+			
+			<a href="#" v-on:click="toggleDescription" v-bind:class="[task.completed ? 'completed-task-text' : '']">
+				<span class="glyphicon" v-show="task.description" v-bind:class="[showDescription ? 'glyphicon-triangle-bottom' : 'glyphicon-triangle-right']"></span>
 
-			<button v-on:click="changeCompleteStatus(task)" class="pull-right btn btn-primary btn-xs">{{ button }}</button>		
+				{{ task.title }}
+			</a>
+
+			<button v-on:click="changeCompleteStatus(task)" class="pull-right btn btn-primary btn-xs">
+				{{ button }}
+			</button>		
 		</div>
 
 		<div class="task-description">
@@ -44,7 +51,9 @@
 			toggleDescription(e) {
 				e.preventDefault();
 
-				this.showDescription = !this.showDescription;
+				if(this.task.description) {
+					this.showDescription = !this.showDescription;
+				}
 			}
 		},
 
