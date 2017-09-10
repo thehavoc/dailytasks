@@ -4,9 +4,9 @@
 		<datepicker :value="date" v-on:selected="fetchDateTasks" input-class="form-control"></datepicker>
 		
 		<NewQuickTask :date="date" @addedTask="addTask"></NewQuickTask>
-
-		<div class="tasks-list">
-			<h4>To do tasks</h4>
+		
+		<div class="tasks-list" v-if="tasks[0]">
+			<h4>Active tasks</h4>
 
 			<ul class="list-group">
 				<li class="list-group-item" v-for="task in todoTasks">
@@ -21,6 +21,9 @@
 					<Task :task="task"></Task>
 				</li>
 			</ul>                
+		</div>
+		<div v-else>
+			<p class="text-center">There are no available tasks for this day. Please add a task by using the <strong>Add a quick task</strong> button or visiting <a href="#">the Add Task page</a>.</p>
 		</div>
 	</div>
 
