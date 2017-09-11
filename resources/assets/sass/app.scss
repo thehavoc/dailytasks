@@ -28,6 +28,10 @@
 
 .task-description p { border-top: 1px solid #d3e0e9; margin-top: 10px; padding-top: 10px; }
 
+.notification-box { position: fixed; top: 25px; right: 25px;  z-index: 9999; text-align: center; }
+
+
+
 @media only screen and (max-device-width: 1024px) {
 	.add-task .add-task-btn { width: auto; }
 	.add-task-form .form-group { margin: 15px 0 0; }

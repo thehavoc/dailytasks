@@ -36,7 +36,7 @@
 	import NewQuickTask from './NewQuickTask.vue';
 	import TasksMixin from '../mixins/Tasks.js';
 	import Datepicker from 'vuejs-datepicker';
-	
+	import Message from '../api/tasks.js';
 
 	export default {
 		mixins: [TasksMixin],
@@ -45,6 +45,8 @@
 
 		mounted() {
 			this.api = new ApiTasks();
+
+			// commit text
 
 			this.fetchTasks();
 		},
@@ -63,7 +65,7 @@
 
 			fetchDateTasks: function(newDate) {
 				newDate = this.formatDate(newDate);
-				this.date = newDate;
+				this.date = newDate;								
 			},
 
 			getTasksCallback: function(response) {

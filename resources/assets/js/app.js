@@ -17,7 +17,11 @@ window.Vue = require('vue');
 
 Vue.component('usertasks', require('./components/UserTasks.vue'));
 Vue.component('addtask', require('./components/AddTask.vue'));
+Vue.component('notification', require('./components/Notification.vue'));
+
+import store from './store'
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store
 });

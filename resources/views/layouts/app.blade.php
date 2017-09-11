@@ -85,7 +85,9 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
+
+        <Notification></Notification>      
     </div>
 
     <!-- Scripts -->
