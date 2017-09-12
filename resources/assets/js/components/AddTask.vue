@@ -53,13 +53,6 @@
 				this.task = this.getDefaultTaskProperties();
 				// Flash message
 			}	
-		},
-
-		computed: {
-		},
-
-		watch: {
 		}
-
 	}
 </script>

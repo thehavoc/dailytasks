@@ -7,21 +7,14 @@
 <script>
 
 	export default {
-
 		data() {
 			return {
 			}
 		},
-
-		mounted() {
-		},
-		methods: {
-		},
 		computed: {
 			message: function () {
 				return this.$store.state.notification.message;
-
-			},
+			}
 		}  		
 	}	
 

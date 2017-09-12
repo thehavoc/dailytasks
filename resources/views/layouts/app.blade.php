@@ -77,7 +77,7 @@
                     <div class="panel panel-default">                
                         <div class="panel-body">
                             @if (isset($title))
-                                <h3 class="page-title">{{ $title }}</h3>
+                                <h4 class="page-title">{{ $title }}</h4>
                             @endif
                             
                             @yield('content')

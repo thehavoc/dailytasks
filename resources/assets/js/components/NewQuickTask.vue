@@ -1,16 +1,11 @@
 <template>
 	<div class="add-task row">
 
-		<div class="col-md-2">
-			<button v-on:click="showForm = !showForm" class="btn btn-success btn-default add-task-btn">Add a quick task</button>
-		</div>
-
-		<div class="col-md-10">
-			<form v-show="showForm" class="add-task-form form-inline">
+		<div class="col-md-12">
+			<form class="add-task-form">
 				<div class="form-group">
-					<input type="text" v-model="task.title" class="form-control" placeholder="Title">
-
-					<button v-on:click="addTask" class="btn btn-default">Submit</button>
+					<input type="text" v-model="task.title" class="form-control text-field" placeholder="Title">
+					<button v-on:click="addTask" class="btn btn-success">Submit</button>
 				</div>
 			</form>
 		</div>
@@ -29,8 +24,6 @@
 		data() {
 			return {
 				task: Object,
-
-				showForm: false
 			}
 		},
 
@@ -57,10 +50,6 @@
 				// Flash message
 				this.$store.commit('notification/changeMessage', 'A new task has been added.');
 			}
-		},
-
-		computed: {
-
-		}        
+		}      
 	}
 </script>

@@ -10,13 +10,7 @@
 
 .completed-task-text { text-decoration: line-through; }
 
-.page-title { margin: 0 0 22px; }
-
-.add-task { margin-bottom: 25px; }
-.add-task .add-task-btn { width: 100%; }
-
-.add-task-form { }
-.add-task-form .form-group input { width: 300px; max-width: 300px; }
+.page-title { margin: 0 0 30px; }
 
 .user-tasks .vdp-datepicker { position: absolute; top: 15px; right: 30px; width: 200px; }
 .user-tasks .vdp-datepicker__calendar { right: 0; }
@@ -28,18 +22,12 @@
 
 .task-description p { border-top: 1px solid #d3e0e9; margin-top: 10px; padding-top: 10px; }
 
-.notification-box { position: fixed; top: 25px; right: 25px;  z-index: 9999; text-align: center; }
+.notification-box { position: fixed; bottom: 25px; right: 25px;  z-index: 9999; text-align: center; }
 
-
-
-@media only screen and (max-device-width: 1024px) {
-	.add-task .add-task-btn { width: auto; }
-	.add-task-form .form-group { margin: 15px 0 0; }
-
-}
+.add-task-form .form-group { display: flex; }
+.add-task-form .form-group .text-field { margin-right: 10px; }
 
 @media only screen and (max-device-width: 768px) {
 	.user-tasks .vdp-datepicker { position: relative; right: auto; top: auto; margin-bottom: 15px; }
 	.user-tasks .vdp-datepicker__calendar { right: auto; left: 0; width: 250px; }
-	.add-task-form .form-group input { width: 100%;  margin-bottom: 15px; }
 }
