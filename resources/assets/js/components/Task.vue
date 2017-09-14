@@ -1,16 +1,13 @@
 <template>
 	<div class="user-task">            
 		<div class="task-heading" v-bind:class="[showDescription ? 'expanded-task' : '']">
-			
 			<a href="#" v-on:click="toggleDescription" v-bind:class="[task.completed ? 'completed-task-text' : '']">
 				<span class="glyphicon" v-show="task.description" v-bind:class="[showDescription ? 'glyphicon-triangle-bottom' : 'glyphicon-triangle-right']"></span>
 
 				{{ task.title }}
 			</a>
 
-			<button v-on:click="changeCompleteStatus(task)" class="pull-right btn btn-primary btn-xs">
-				{{ button }}
-			</button>		
+			<input v-on:click="changeCompleteStatus(task)" :checked="task.completed"  type="checkbox" class="pull-right" />
 		</div>
 
 		<div class="task-description">
@@ -55,17 +52,6 @@
 					this.showDescription = !this.showDescription;
 				}
 			}
-		},
-
-		computed: {
-			button: function () {
-
-				if(this.task.completed) {
-					return 'Active';
-				}
-
-				return 'Complete';
-			},
-		}        
+		}      
 	}
 </script>

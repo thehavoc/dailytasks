@@ -1,10 +1,10 @@
 <template>
 	<div class="add-task row">
-
 		<div class="col-md-12">
 			<form class="add-task-form">
 				<div class="form-group">
 					<input type="text" v-model="task.title" class="form-control text-field" placeholder="Title">
+					
 					<button v-on:click="addTask" class="btn btn-success">Submit</button>
 				</div>
 			</form>

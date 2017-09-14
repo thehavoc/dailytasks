@@ -1,21 +1,21 @@
 <template>
 	<div class="user-tasks">
-		
 		<datepicker :value="date" v-on:selected="fetchDateTasks" input-class="form-control"></datepicker>
 		
 		<NewQuickTask :date="date" @addedTask="addTask"></NewQuickTask>
 		
 		<div class="tasks-list" v-if="tasks[0]">
-
 			<TasksList title="Active tasks" :tasks="todoTasks"></TasksList>
+			
 			<TasksList title="Completed tasks" :tasks="completedTasks"></TasksList>
-
 		</div>
+
 		<div v-else>
-			<p class="text-center">There are no available tasks for this day. Please add a task by using the above form or visiting <a href="#">the Add Task page</a>.</p>
+			<p class="text-center">
+				There are no available tasks for this day. Please add a task by using the above form or visiting <a href="#">the Add Task page</a>.
+			</p>
 		</div>
 	</div>
-
 </template>
 
 <script>

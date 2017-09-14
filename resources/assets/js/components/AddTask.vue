@@ -3,16 +3,19 @@
 		<form>
 			<div class="form-group">
 				<label>Title</label>
+				
 				<input type="text" class="form-control" v-model="task.title">
 			</div>
 
 			<div class="form-group">
 				<label>Description</label>
+
 				<textarea class="form-control" v-model="task.description"></textarea>
 			</div>
 
 			<div class="form-group">
 				<label>Date</label>
+
 				<datepicker :value="task.added_to" v-on:selected="setTaskDate" input-class="form-control"></datepicker>
 			</div>
 

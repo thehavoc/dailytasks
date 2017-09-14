@@ -27,6 +27,12 @@
 .add-task-form .form-group { display: flex; }
 .add-task-form .form-group .text-field { margin-right: 10px; }
 
+.fade-enter-active, 
+.fade-leave-active { transition: opacity .3s }
+
+.fade-enter, 
+.fade-leave-to { opacity: 0; }
+
 @media only screen and (max-device-width: 768px) {
 	.user-tasks .vdp-datepicker { position: relative; right: auto; top: auto; margin-bottom: 15px; }
 	.user-tasks .vdp-datepicker__calendar { right: auto; left: 0; width: 250px; }
