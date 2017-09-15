@@ -6,31 +6,17 @@ import Api from './api.js';
 
 export default class extends Api {
 
-    constructor() {
-        super();
-        
-        this.apiUrls = {
-            tasks: this.baseApiUrl + 'tasks/',
-            updateTask: this.baseApiUrl + 'updateTask/',
-            addTask: this.baseApiUrl + 'addTask',
-        }
-    }
+	getTasks(callback, date) {
 
-    getTasks(callback, date) {
+		super.execute('', this.routes.api.tasks + date, callback, 'get');
+	}
 
-        super.execute('', this.apiUrls.tasks + date, callback, 'get');
-    }
+	updateTask(callback, task) {
+		super.execute(task, this.routes.api.updateTask + task.id , callback, 'patch');
+	}    
 
-    updateTask(callback, task) {
-        super.execute(task, this.apiUrls.updateTask + task.id , callback, 'patch');
-    }    
-
-    addQuickTask(callback, task) {
-        super.execute(task, this.apiUrls.addQuickTask , callback, 'post');
-    }
-
-    addTask(callback, task) {
-        super.execute(task, this.apiUrls.addTask , callback, 'post');
-    }
+	addTask(callback, task) {
+		super.execute(task, this.routes.api.addTask , callback, 'post');
+	}
 
 }

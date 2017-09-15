@@ -2,10 +2,13 @@
  * This is a class that will handle Ajax requests.
  */
 
+import Route from './route.js';
+
 export default class {
 
 	constructor() {
-		this.baseApiUrl = window.apiUrl;
+		let route = new Route();
+		this.routes = route.getRoutes();
 	}
 
 	/**

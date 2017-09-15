@@ -47,7 +47,6 @@
 				this.$emit('addedTask', response);
 				this.task.title = '';
 
-				// Flash message
 				this.$store.commit('notification/changeMessage', 'A new task has been added.');
 			}
 		}      

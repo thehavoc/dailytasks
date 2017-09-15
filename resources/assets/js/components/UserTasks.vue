@@ -35,8 +35,6 @@
 		mounted() {
 			this.api = new ApiTasks();
 
-			// commit text
-
 			this.fetchTasks();
 		},
 

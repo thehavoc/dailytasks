@@ -3,7 +3,7 @@
 		<form>
 			<div class="form-group">
 				<label>Title</label>
-				
+
 				<input type="text" class="form-control" v-model="task.title">
 			</div>
 
@@ -19,7 +19,9 @@
 				<datepicker :value="task.added_to" v-on:selected="setTaskDate" input-class="form-control"></datepicker>
 			</div>
 
-			<button v-on:click="addTask" class="btn btn-default">Submit</button>
+			<button v-on:click="addTask" class="btn btn-success">Submit</button>
+
+			<a href="" class="btn btn-default pull-right">Got to tasks</a>
 		</form>
 	</div>
 
@@ -54,7 +56,7 @@
 			},
 			addTaskCallback: function(response) {
 				this.task = this.getDefaultTaskProperties();
-				// Flash message
+				this.$store.commit('notification/changeMessage', 'A new task has been added.');
 			}	
 		}
 	}
