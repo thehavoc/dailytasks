@@ -93,7 +93,6 @@
     <!-- Scripts -->
     <script>
         window.baseUrl = "<?php echo url('/') ?>/";
-        window.apiUrl = "<?php echo url('/api') ?>/";
     </script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
