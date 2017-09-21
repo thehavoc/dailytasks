@@ -12,36 +12,35 @@
 
 		<div v-else>
 			<p class="text-center">
-				There are no available tasks for this day. Please add a task by using the above form or visiting <a href="#">the Add Task page</a>.
+				There are no available tasks for this day. Please add a task by using the above form or visiting <a :href="addTaskUrl">the Add Task page</a>.
 			</p>
 		</div>
 	</div>
 </template>
 
-<script>
-
+<script>	
 	import ApiTasks from '../api/tasks.js';
 	import NewQuickTask from './NewQuickTask.vue';
 	import TasksList from './TasksList.vue';
 	import TasksMixin from '../mixins/Tasks.js';
-	import Datepicker from 'vuejs-datepicker';
-	import Message from '../api/tasks.js';
 
 	export default {
 		mixins: [TasksMixin],
 
-		components: { NewQuickTask, Datepicker, TasksList },
+		components: { NewQuickTask, TasksList },
 
 		mounted() {
-			this.api = new ApiTasks();
+			this.executeDefaultAddTaskActions();
 
+			this.addTaskUrl = this.route.getUrl('addTask', 'web')
 			this.fetchTasks();
 		},
 
 		data() {
 			return {
 				tasks: [],
-				date: this.getCurrentDate()
+				date: this.getCurrentDate(),
+				addTaskUrl: ''
 			}
 		},
 

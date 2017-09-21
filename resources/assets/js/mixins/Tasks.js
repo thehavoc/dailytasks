@@ -1,24 +1,13 @@
-import moment from 'moment'
+import Route from '../route/index.js';
 import ApiTasks from '../api/tasks.js';	
 import Datepicker from 'vuejs-datepicker';
+import DateMixin from '../mixins/Date.js';
 
 export default {
-	
+	mixins: [ DateMixin ],
 	components: { Datepicker },
 
 	methods: {
-
-		getCurrentDate: function() {
-			return moment().format(this.getDateFormat());
-		},
-
-		formatDate: function(date) {
-			return moment(date).format(this.getDateFormat());
-		},
-
-		getDateFormat: function() {
-			return 'YYYY-MM-DD';
-		},
 
 	    getDefaultTaskProperties() {
 	        return {
@@ -31,7 +20,8 @@ export default {
 
 	    executeDefaultAddTaskActions() {
 			this.api = new ApiTasks();
-			this.task = this.getDefaultTaskProperties();	    	
+			this.route = new Route();
+			this.task = this.getDefaultTaskProperties();
 	    }	
 
 	}

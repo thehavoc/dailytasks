@@ -21,7 +21,7 @@
 		},
 		computed: {
 			message: function () {
-				return this.$store.state.notification.message;
+				return this.$store.getters['notification/getMessage'];
 			}
 		},
 		watch: {

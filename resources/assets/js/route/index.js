@@ -5,26 +5,15 @@
 export default class {
 	getRoutes() {
 		return {
-			api: [
-				{
-					name: 'tasks',
-					path: 'api/tasks/'
-				},
-				{
-					name: 'updateTask',
-					path: 'api/updateTask/'
-				},
-				{
-					name: 'addTask',
-					path: 'api/addTask'
-				}
-			],
-			web: [
-				{
-					name: 'addTask',
-					path: 'addTask'
-				}
-			]
+			api: {
+				tasks: 'api/tasks/',
+				updateTask: 'api/updateTask/',
+				addTask: 'api/addTask'
+			},
+			web: {
+				addTask: 'add-task',
+				tasksUrl: ''
+			}
 		}
 	}
 
@@ -35,14 +24,8 @@ export default class {
 	getUrl(path, type = 'web') {
 		let routes = this.getRoutes();
 
-		if(routes[type].length && path) {
-
-			for(let route of routes[type]) {
-				if(route.name === path) {
-					return this.prepareUrl(route.path);
-				}
-			}
-
+		if(type && routes.hasOwnProperty(type) && path && routes[type].hasOwnProperty(path)) {
+			return this.prepareUrl(routes[type][path]);
 		}
 
 		return this.prepareUrl('not-found');

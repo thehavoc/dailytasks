@@ -4,7 +4,7 @@
 			<div class="form-group">
 				<label>Title</label>
 
-				<input type="text" class="form-control" v-model="task.title">
+				<input type="text" class="form-control" required="required" v-model="task.title">
 			</div>
 
 			<div class="form-group">
@@ -21,7 +21,7 @@
 
 			<button v-on:click="addTask" class="btn btn-success">Submit</button>
 
-			<a href="" class="btn btn-default pull-right">Got to tasks</a>
+			<a :href="tasksUrl" class="btn btn-default pull-right">Got to tasks</a>
 		</form>
 	</div>
 
@@ -36,12 +36,14 @@
 
 		mounted() {
 			this.executeDefaultAddTaskActions();
+			this.tasksUrl = this.route.getUrl('tasksUrl', 'web')
 			this.task.added_to = this.getCurrentDate();
 		},
 
 		data() {
 			return {
 				task: Object,
+				tasksUrl: ''
 			}
 		},
 
