@@ -14,7 +14,7 @@
 
 <script>
 
-	import TasksMixin from '../mixins/Tasks.js';
+	import TasksMixin from '../mixins/tasks.js';
 
 	export default {
 		props: ['date'],

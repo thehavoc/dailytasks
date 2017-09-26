@@ -1,10 +1,11 @@
 import Route from '../route/index.js';
-import ApiTasks from '../api/tasks.js';	
+import ApiTasks from '../api/tasks.js';
 import Datepicker from 'vuejs-datepicker';
-import DateMixin from '../mixins/Date.js';
+import DateMixin from '../mixins/date.js';
+import FormMixin from '../mixins/form.js';
 
 export default {
-	mixins: [ DateMixin ],
+	mixins: [ DateMixin, FormMixin ],
 	components: { Datepicker },
 
 	methods: {
@@ -12,7 +13,7 @@ export default {
 	    getDefaultTaskProperties() {
 	        return {
 	            title: '',
-	            added_to: '',
+	            added_to: this.getCurrentDate(),
 	            completed: 0,
 	            description: ''
 	        }

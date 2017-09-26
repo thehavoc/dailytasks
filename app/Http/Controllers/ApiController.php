@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Task;
 use Auth;
 use App\Http\Requests\UpdateTaskRequest;
+use App\Http\Requests\AddTaskRequest;
 
 class ApiController extends Controller
 {
@@ -39,7 +40,7 @@ class ApiController extends Controller
      * @param Task $task
      * @return Collection
      */ 
-    public function addTask(Request $request, Task $task) 
+    public function addTask(AddTaskRequest $request, Task $task) 
     {   
         $request['user_id'] = Auth::id();
         $task = $task->create($request->all());

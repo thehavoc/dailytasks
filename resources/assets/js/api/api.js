@@ -14,24 +14,28 @@ export default class {
 	 * Send a request to a given URL. 
 	 * A callback function is executed after the request.
 	 */
-	execute(data, url, callback, method = 'get') {
+	execute(data, url, callback, method = 'get', callbackError) {
 		if(!url || !callback) {
 			return false;
 		}
 
-		return new Promise((resolve) => {
+		return new Promise((resolve, reject) => {
 			window.axios({
 				method: method,
 				url: url,
 				data: data
 			})
 			.then(function (response) {
-				callback(response.data, 'success');
+				callback(response.data);
 
 				resolve(response.data);
 			})
 			.catch(function (errors) {
-				alert(errors);
+
+				callbackError(errors.response.data)
+
+				reject(errors.response.data);
+
 			});	
 		});
 	}

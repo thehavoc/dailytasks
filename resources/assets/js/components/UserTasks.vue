@@ -18,11 +18,11 @@
 	</div>
 </template>
 
-<script>	
+<script>
 	import ApiTasks from '../api/tasks.js';
 	import NewQuickTask from './NewQuickTask.vue';
 	import TasksList from './TasksList.vue';
-	import TasksMixin from '../mixins/Tasks.js';
+	import TasksMixin from '../mixins/tasks.js';
 
 	export default {
 		mixins: [TasksMixin],
