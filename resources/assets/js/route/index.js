@@ -8,7 +8,8 @@ export default class {
 			api: {
 				tasks: 'api/tasks/',
 				updateTask: 'api/updateTask/',
-				addTask: 'api/addTask'
+				addTask: 'api/addTask',
+				addQuickTask: 'api/addQuickTask'
 			},
 			web: {
 				addTask: 'add-task',

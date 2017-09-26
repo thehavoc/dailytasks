@@ -1,9 +1,11 @@
 <template>
 	<div class="add-task row">
 		<div class="col-md-12">
-			<form class="add-task-form">
+			<form class="add-task-form" @keydown="errors.clear($event.target.name)">
 				<div class="form-group">
 					<input type="text" v-model="task.title" class="form-control text-field" placeholder="Title">
+
+					<div class="alert alert-danger" v-show="errors.get('title')" v-text="errors.get('title')"></div>
 					
 					<button v-on:click="addTask" class="btn btn-success">Submit</button>
 				</div>
@@ -39,7 +41,7 @@
 				if(this.task.title) {
 
 					this.task.added_to = this.date;
-					this.api.addTask(this.addTaskCallback, this.task);					
+					this.api.addQuickTask(this.addTaskCallback, this.task, this.errorsCallback);					
 				}
 			},
 
