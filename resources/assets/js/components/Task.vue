@@ -42,7 +42,7 @@
 			},
 			
 			updateTaskCallback(response) {
-				// Flash message
+				this.$store.commit('notification/changeMessage', 'The task has been updated.');
 			},
 
 			toggleDescription(e) {

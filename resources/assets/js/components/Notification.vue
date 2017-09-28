@@ -1,6 +1,6 @@
 <template>
-	<transition name="fade">
-		<div class="notification-box alert alert-success" role="alert" v-show="show" v-on:after-leave="afterLeave">
+	<transition name="fade" v-on:after-leave="afterLeave">
+		<div class="notification-box alert alert-success" role="alert" v-show="show">
 			{{ message }}
 		</div>
 	</transition>
@@ -17,6 +17,7 @@
 		methods: {
 			afterLeave: function (el) {
 				this.$store.commit('notification/changeMessage', '');
+				
 			},
 		},
 		computed: {
@@ -26,11 +27,15 @@
 		},
 		watch: {
 			message: function() {
-				var vm = this;
-				vm.show = true;
+				if(this.message) {
+					this.show = true;
+				}
 
+				var vm = this;
+				
 				setTimeout(function() {
 					vm.show = false;
+
 				}, 1500);
 			}
 		}
