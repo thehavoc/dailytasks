@@ -60,20 +60,46 @@
 
 			addTask: function(task) {
 				this.tasks.push(task);
+			},
+			sortTasks: function(tasks) {
+				if(tasks) {
+					return tasks.sort(function (a, b) {
+						if(a.time_slot === null){
+							return 1;
+						}
+						
+						if(b.time_slot === null){
+							return -1;
+						}
+
+						if (parseInt(a.time_slot.split(":")[0]) - parseInt(b.time_slot.split(":")[0]) === 0) {
+							return parseInt(a.time_slot.split(":")[1]) - parseInt(b.time_slot.split(":")[1]);
+						} else {
+							return parseInt(a.time_slot.split(":")[0]) - parseInt(b.time_slot.split(":")[0]);
+						}
+					});
+				}
+
+				return tasks;				
 			}
 		},
 
 		computed: {
 			completedTasks: function () {
-				return this.tasks.filter(function (task) {
+
+				var tasks = this.tasks.filter(function (task) {
 					return task.completed;
-				})
+				});
+
+				return this.sortTasks(tasks);
 			},
 
 			todoTasks: function () {
-				return this.tasks.filter(function (task) {
+				var tasks = this.tasks.filter(function (task) {
 					return !task.completed;
 				})
+
+				return this.sortTasks(tasks);
 			},            
 		},
 
