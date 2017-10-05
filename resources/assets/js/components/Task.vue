@@ -7,7 +7,11 @@
 				{{ task.title }}
 			</a>
 
+
 			<input v-on:click="changeCompleteStatus(task)" :checked="task.completed"  type="checkbox" class="pull-right" />
+
+			<span class="pull-right task-time-slot" v-if="task.time_slot">{{ task.time_slot }}</span>
+
 		</div>
 
 		<div class="task-description">

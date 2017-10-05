@@ -15,6 +15,7 @@ export default {
 	            title: '',
 	            added_to: this.getCurrentDate(),
 	            completed: 0,
+	            time_slot: '',
 	            description: ''
 	        }
 	    },
