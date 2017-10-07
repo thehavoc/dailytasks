@@ -78,14 +78,15 @@
 				this.$store.commit('notification/changeMessage', 'A new task has been added.');
 			},
 			getTimeSlots: function(){
-				var max_slots = 24;
+				var first_slot = 8;
+				var last_slot = 19
 
 				var intervals = [
 					'00',
 					'30'
 				];
 
-				for (var i = 0; i < max_slots; i++) {
+				for (var i = first_slot; i <= last_slot; i++) {
 					var time = i
 
 					if(time < 10) {

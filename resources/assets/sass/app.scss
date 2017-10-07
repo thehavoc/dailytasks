@@ -37,6 +37,9 @@
 
 .add-task .alert-danger { padding: 5px; margin-top: 10px; }
 
+.past-task a.task-title,
+.past-task .task-time-slot { color: #b7b7b7; }
+
 @media only screen and (max-device-width: 768px) {
 	.user-tasks .vdp-datepicker { position: relative; right: auto; top: auto; margin-bottom: 15px; }
 	.user-tasks .vdp-datepicker__calendar { right: auto; left: 0; width: 250px; }

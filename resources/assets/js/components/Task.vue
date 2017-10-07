@@ -1,7 +1,7 @@
 <template>
-	<div class="user-task">            
+	<div class="user-task" v-bind:class="[past ? 'past-task' : '']">            
 		<div class="task-heading" v-bind:class="[showDescription ? 'expanded-task' : '']">
-			<a href="#" v-on:click="toggleDescription" v-bind:class="[task.completed ? 'completed-task-text' : '']">
+			<a href="#" class="task-title" v-on:click="toggleDescription" v-bind:class="[task.completed ? 'completed-task-text' : '']">
 				<span class="glyphicon" v-show="task.description" v-bind:class="[showDescription ? 'glyphicon-triangle-bottom' : 'glyphicon-triangle-right']"></span>
 
 				{{ task.title }}
@@ -25,12 +25,16 @@
 <script>
 
 	import ApiTasks from '../api/tasks.js';
+	import TasksMixin from '../mixins/tasks.js';
 
 	export default {
+		mixins: [TasksMixin],
+
 		props: ['task'],
 
 		mounted() {
 			this.api = new ApiTasks();
+			console.log('32131');
 		},
 
 		data() {
@@ -55,7 +59,13 @@
 				if(this.task.description) {
 					this.showDescription = !this.showDescription;
 				}
+			},		
+
+		},
+		computed: {
+			past: function() {
+				return this.pastTask();
 			}
-		}      
+		}
 	}
 </script>
