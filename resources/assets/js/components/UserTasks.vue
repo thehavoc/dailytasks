@@ -2,7 +2,7 @@
 	<div class="user-tasks">
 		<datepicker :value="date" v-on:selected="fetchDateTasks" input-class="form-control"></datepicker>
 		
-		<NewQuickTask :date="date" @addedTask="addTask"></NewQuickTask>
+		<NewQuickTask :date="date"></NewQuickTask>
 		
 		<div class="tasks-list" v-if="tasks[0]">
 			<TasksList title="Active tasks" :tasks="todoTasks"></TasksList>
@@ -47,11 +47,7 @@
 			fetchDateTasks: function(newDate) {
 				newDate = this.formatDate(newDate);
 				this.date = newDate;								
-			},
-
-			addTask: function(task) {
-				this.tasks.push(task);
-			},
+			},			
 			sortTasks: function(tasks) {
 				if(tasks) {
 					return tasks.sort(function (a, b) {

@@ -15,7 +15,7 @@ export default class {
 	 * A callback function is executed after the request.
 	 */
 	execute(data, url, callback, method = 'get', callbackError) {
-		if(!url || !callback) {
+		if(!url) {
 			return false;
 		}
 
@@ -26,6 +26,11 @@ export default class {
 				data: data
 			})
 			.then(function (response) {
+
+				if(callback) {
+					callback(response.data);
+				}
+
 				resolve(response.data);
 			})
 			.catch(function (errors) {

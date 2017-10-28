@@ -15,14 +15,23 @@ export default {
 	mutations: {
 		setTasks(state, tasks) {
 			state.tasks = tasks;
+		},
+		pushTask(state, task) {
+			state.tasks.push(task);
 		}
 	},
 	actions: {
 		getTasks({ commit }, date) {
-			api.getTasks('test', date).then(function(res) {
+			api.getTasks('', date).then(function(res) {
 				commit('setTasks', res);	
 			});
 			
-		}
+		},
+		addTask: function({ commit }, task) {
+			api.addQuickTask('', task).then(function(res) {
+				commit('pushTask', res);
+				commit('notification/changeMessage', 'A new task has been added.', { root: true });
+			});
+		},		
 	}
 }

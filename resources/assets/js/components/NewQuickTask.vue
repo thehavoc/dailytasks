@@ -41,15 +41,13 @@
 				if(this.task.title) {
 
 					this.task.added_to = this.date;
-					this.api.addQuickTask(this.addTaskCallback, this.task, this.errorsCallback);					
+
+					var vm = this;
+
+					this.$store.dispatch('tasks/addTask', this.task).then(function() {
+						vm.task.title = ''
+					});
 				}
-			},
-
-			addTaskCallback: function(response) {
-				this.$emit('addedTask', response);
-				this.task.title = '';
-
-				this.$store.commit('notification/changeMessage', 'A new task has been added.');
 			}
 		}      
 	}
