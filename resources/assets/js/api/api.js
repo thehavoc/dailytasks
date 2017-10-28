@@ -26,8 +26,6 @@ export default class {
 				data: data
 			})
 			.then(function (response) {
-				callback(response.data);
-
 				resolve(response.data);
 			})
 			.catch(function (errors) {

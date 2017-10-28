@@ -11,8 +11,7 @@ export default class extends Api {
 	}
 
 	getTasks(callback, date) {
-
-		super.execute('', this.route.getUrl('tasks', 'api') + date, callback, 'get');
+		return super.execute('', this.route.getUrl('tasks', 'api') + date, callback, 'get');
 	}
 
 	updateTask(callback, task) {

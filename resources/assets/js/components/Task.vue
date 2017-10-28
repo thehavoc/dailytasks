@@ -1,16 +1,26 @@
 <template>
 	<div class="user-task" v-bind:class="[past ? 'past-task' : '']">            
-		<div class="task-heading" v-bind:class="[showDescription ? 'expanded-task' : '']">
-			<a href="#" class="task-title" v-on:click="toggleDescription" v-bind:class="[task.completed ? 'completed-task-text' : '']">
-				<span class="glyphicon" v-show="task.description" v-bind:class="[showDescription ? 'glyphicon-triangle-bottom' : 'glyphicon-triangle-right']"></span>
+		<div class="task-heading row" v-bind:class="[showDescription ? 'expanded-task' : '']">
+			<div class="col-md-8">
+				<a href="#" class="task-title" v-on:click="toggleDescription" v-bind:class="[task.completed ? 'completed-task-text' : '']">
+					<span class="glyphicon" v-show="task.description" v-bind:class="[showDescription ? 'glyphicon-triangle-bottom' : 'glyphicon-triangle-right']"></span>
 
-				{{ task.title }}
-			</a>
+					{{ task.title }}
+				</a>
+			</div>
 
+			<div class="col-md-4">
 
-			<input v-on:click="changeCompleteStatus(task)" :checked="task.completed"  type="checkbox" class="pull-right" />
+				<input v-on:click="changeCompleteStatus(task)" :checked="task.completed"  type="checkbox" class="pull-right" />
 
-			<span class="pull-right task-time-slot" v-if="task.time_slot">{{ task.time_slot }}</span>
+				<span class="pull-right task-time-slot" v-if="task.time_slot">{{ task.time_slot }}</span>
+
+				<span class="task-actions pull-right">
+					<button v-on:click="deleteTask" class="btn btn-danger btn-xs">Delete</button>
+					<button class="btn btn-primary btn-xs">Edit</button>
+				</span>
+
+			</div>
 
 		</div>
 
@@ -34,7 +44,6 @@
 
 		mounted() {
 			this.api = new ApiTasks();
-			console.log('32131');
 		},
 
 		data() {
@@ -53,6 +62,9 @@
 				this.$store.commit('notification/changeMessage', 'The task has been updated.');
 			},
 
+			deleteTask() {
+				console.log('deleted');
+			},
 			toggleDescription(e) {
 				e.preventDefault();
 

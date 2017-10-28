@@ -19,7 +19,6 @@
 </template>
 
 <script>
-	import ApiTasks from '../api/tasks.js';
 	import NewQuickTask from './NewQuickTask.vue';
 	import TasksList from './TasksList.vue';
 	import TasksMixin from '../mixins/tasks.js';
@@ -33,29 +32,21 @@
 			this.executeDefaultAddTaskActions();
 
 			this.addTaskUrl = this.route.getUrl('addTask', 'web')
-			this.fetchTasks();
+
+			this.$store.dispatch('tasks/getTasks', this.date);
 		},
 
 		data() {
 			return {
-				tasks: [],
 				date: this.getCurrentDate(),
 				addTaskUrl: ''
 			}
 		},
 
 		methods: {
-			fetchTasks: function() {
-				this.api.getTasks(this.getTasksCallback, this.date);
-			},
-
 			fetchDateTasks: function(newDate) {
 				newDate = this.formatDate(newDate);
 				this.date = newDate;								
-			},
-
-			getTasksCallback: function(response) {
-				this.tasks = response;
 			},
 
 			addTask: function(task) {
@@ -85,6 +76,9 @@
 		},
 
 		computed: {
+			tasks: function() {
+				return this.$store.getters['tasks/tasks'];
+			},
 			completedTasks: function () {
 
 				var tasks = this.tasks.filter(function (task) {
@@ -105,7 +99,7 @@
 
 		watch: {
 			date: function(newDate) {
-				this.fetchTasks();				
+				this.$store.dispatch('tasks/getTasks', this.date);
 			}
 		}
 

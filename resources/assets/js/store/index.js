@@ -5,6 +5,7 @@ import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
 import notification from './modules/notification'
+import tasks from './modules/tasks'
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ export default new Vuex.Store({
 	getters,
 	mutations,
 	modules: {
-		notification
+		notification,
+		tasks
 	}
 });

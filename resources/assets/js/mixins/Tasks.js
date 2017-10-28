@@ -11,15 +11,15 @@ export default {
 
 	methods: {
 
-	    getDefaultTaskProperties() {
-	        return {
-	            title: '',
-	            added_to: this.getCurrentDate(),
-	            completed: 0,
-	            time_slot: '',
-	            description: ''
-	        }
-	    },
+		getDefaultTaskProperties() {
+			return {
+				title: '',
+				added_to: this.getCurrentDate(),
+				completed: 0,
+				time_slot: '',
+				description: ''
+			}
+		},
 
 		pastTask() {
 			var time = '23:59';
@@ -33,13 +33,13 @@ export default {
 			}
 
 			return false;
-		},	    
+		},
 
-	    executeDefaultAddTaskActions() {
+		executeDefaultAddTaskActions() {
 			this.api = new ApiTasks();
 			this.route = new Route();
 			this.task = this.getDefaultTaskProperties();
-	    }	
+		}	
 
 	}
 
