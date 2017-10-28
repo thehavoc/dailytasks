@@ -34,17 +34,12 @@
 
 <script>
 
-	import ApiTasks from '../api/tasks.js';
 	import TasksMixin from '../mixins/tasks.js';
 
 	export default {
 		mixins: [TasksMixin],
 
 		props: ['task'],
-
-		mounted() {
-			this.api = new ApiTasks();
-		},
 
 		data() {
 			return {
@@ -55,11 +50,7 @@
 		methods: {
 			changeCompleteStatus: function(task, status) {
 				task.completed = !task.completed;
-				this.api.updateTask(this.updateTaskCallback, task);
-			},
-			
-			updateTaskCallback(response) {
-				this.$store.commit('notification/changeMessage', 'The task has been updated.');
+				this.$store.dispatch('tasks/updateTask', task);				
 			},
 
 			deleteTask() {

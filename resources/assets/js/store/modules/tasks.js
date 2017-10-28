@@ -32,6 +32,11 @@ export default {
 				commit('pushTask', res);
 				commit('notification/changeMessage', 'A new task has been added.', { root: true });
 			});
-		},		
+		},
+		updateTask: function({ commit }, task) {
+			api.updateTask('', task).then(function() {
+				commit('notification/changeMessage', 'The task has been updated.', { root: true });
+			});
+		}
 	}
 }
