@@ -62,5 +62,15 @@ class ApiController extends Controller
 		return $task;
 	} 
 
+	/**
+	 * Remove a task
+	 *
+	 * @param Task $task
+	 * @return bool
+	 */	
+	public function deleteTask(Task $task) 
+	{	
+		$task->delete($task->id);
+	}	
 
 }

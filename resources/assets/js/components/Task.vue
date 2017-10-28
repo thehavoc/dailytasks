@@ -55,6 +55,7 @@
 
 			deleteTask() {
 				console.log('deleted');
+				this.$store.dispatch('tasks/deleteTask', this.task)
 			},
 			toggleDescription(e) {
 				e.preventDefault();
