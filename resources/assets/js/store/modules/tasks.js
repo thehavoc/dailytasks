@@ -43,7 +43,7 @@ export default {
 		},
 		deleteTask({ commit, state }, task) {
 			var index = state.tasks.indexOf(task);
-			if(index) {
+			if(index > -1) {
 				api.deleteTask('', task).then(function(res) {
 					commit('removeTask', index);			
 					commit('notification/changeMessage', 'The task has been deleted.', { root: true });

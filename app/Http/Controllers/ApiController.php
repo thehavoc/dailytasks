@@ -8,6 +8,7 @@ use Auth;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Http\Requests\AddTaskRequest;
 use App\Http\Requests\AddQuickTaskRequest;
+use App\Http\Requests\UserRequest;
 
 class ApiController extends Controller
 {
@@ -51,7 +52,7 @@ class ApiController extends Controller
 	/**
 	 * Add a quick task
 	 *
-	 * @param UserRequest $request
+	 * @param AddQuickTaskRequest $request
 	 * @param Task $task
 	 * @return Collection
 	 */ 
@@ -65,10 +66,10 @@ class ApiController extends Controller
 	/**
 	 * Remove a task
 	 *
+	 * @param UserRequest $request
 	 * @param Task $task
-	 * @return bool
 	 */	
-	public function deleteTask(Task $task) 
+	public function deleteTask(UserRequest $request, Task $task) 
 	{	
 		$task->delete($task->id);
 	}	

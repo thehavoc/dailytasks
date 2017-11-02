@@ -1,5 +1,4 @@
 import Route from '../route/index.js';
-import ApiTasks from '../api/tasks.js';
 import Datepicker from 'vuejs-datepicker';
 import DateMixin from '../mixins/date.js';
 import FormMixin from '../mixins/form.js';
@@ -36,7 +35,6 @@ export default {
 		},
 
 		executeDefaultAddTaskActions() {
-			this.api = new ApiTasks();
 			this.route = new Route();
 			this.task = this.getDefaultTaskProperties();
 		}	
