@@ -13,13 +13,14 @@
 	export default {
 		mixins: [TasksMixin],
 
+		components: { SaveFormTask },
+		
 		data() {
 			return {
 				task: Object,
 			}
 		},
 
-		components: { SaveFormTask },
 
 		mounted() {
 			this.executeDefaultAddTaskActions();

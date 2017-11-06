@@ -30,4 +30,8 @@ export default class extends Api {
 		return super.execute(task, this.route.getUrl('deleteTask', 'api') + task.id, callback, 'delete');
 	}
 
+	getTask(id) {
+		return super.execute('', this.route.getUrl('getTask', 'api') + id, '', 'get');
+	}	
+
 }

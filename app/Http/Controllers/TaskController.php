@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use Illuminate\Http\Request;
+use Auth;
 
 class TaskController extends Controller
 {
@@ -59,6 +60,10 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
+        if(Auth::id() !== $task->user_id) {
+            return abort('403');
+        }
+
         $data['title'] = 'Edit Task';
 
         return view('edit-task', $data);        

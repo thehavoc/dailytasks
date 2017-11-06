@@ -30,6 +30,10 @@ export default {
 			});
 			
 		},
+		getTask({ commit }, id) {
+			return api.getTask(id);
+			
+		},		
 		addQuickTask: function({ commit, dispatch }, task) {
 			api.addQuickTask('', task).then(function(res) {
 				commit('pushTask', res);

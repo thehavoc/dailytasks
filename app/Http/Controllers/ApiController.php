@@ -21,6 +21,16 @@ class ApiController extends Controller
 	{	        
 		return Auth::user()->tasks()->where('added_to', $request->date)->get();    	
 	}	
+	/**
+	 * Get a task
+	 *
+	 * @param Task $task
+	 * @return Collection
+	 */	
+	public function getTask(Task $task) 
+	{	
+		return Task::find($task->id);
+	}	
 
 	/**
 	 * Update a task
@@ -73,18 +83,5 @@ class ApiController extends Controller
 	{	
 		$task->delete($task->id);
 	}
-
-	/**
-	 * Edit a task
-	 *
-	 * @param Request $request
-	 * @param Task $task
-	 * @return Collection
-	 */	
-	public function editTask(Request $request, Task $task) 
-	{	
-		
-		return $task;
-	}	
 
 }
