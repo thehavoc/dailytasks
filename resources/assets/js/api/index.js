@@ -14,7 +14,7 @@ export default class {
 	 * Send a request to a given URL. 
 	 * A callback function is executed after the request.
 	 */
-	execute(data, url, callback, method = 'get') {
+	execute(url, data, method = 'get') {
 		if(!url) {
 			return false;
 		}
@@ -27,10 +27,6 @@ export default class {
 			})
 			.then(function (response) {
 
-				if(callback) {
-					callback(response.data);
-				}
-
 				resolve(response.data);
 			})
 			.catch(function (errors) {
@@ -40,4 +36,19 @@ export default class {
 		});
 	}
 
+	get(url, data) {
+		return this.execute(url, data, 'get');
+	}
+
+	post(url, data) {
+		return this.execute(url, data, 'post');
+	}
+
+	patch(url, data) {
+		return this.execute(url, data, 'patch');
+	}	
+
+	delete(url ,data) {
+		return this.execute(url, data, 'delete');
+	}
 }

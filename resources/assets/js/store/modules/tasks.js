@@ -1,6 +1,8 @@
-import ApiTasks from '../../api/tasks.js';
+import Api from '../../api/index.js';
+import Route from '../../route/index.js';
 
-const api = new ApiTasks();
+const api = new Api();
+const route = new Route();
 
 export default {
 	namespaced: true,
@@ -25,17 +27,16 @@ export default {
 	},
 	actions: {
 		getTasks({ commit }, date) {
-			api.getTasks('', date).then(function(res) {
+			api.get(route.getUrl('tasks', 'api') + date).then(function(res) {
 				commit('setTasks', res);
 			});
 			
 		},
 		getTask({ commit }, id) {
-			return api.getTask(id);
-			
+			return api.get(route.getUrl('getTask', 'api') + id);
 		},		
 		addQuickTask: function({ commit, dispatch }, task) {
-			api.addQuickTask('', task).then(function(res) {
+			api.post(route.getUrl('addQuickTask', 'api'), task).then(function(res) {
 				commit('pushTask', res);
 				commit('notification/change', 'A new task has been added.', { root: true });
 			}).catch(function(errors) {
@@ -43,21 +44,21 @@ export default {
 			});
 		},
 		updateTask: function({ commit }, task) {
-			api.updateTask('', task).then(function() {
+			api.patch(route.getUrl('updateTask', 'api') + task.id, task).then(function() {
 				commit('notification/change', 'The task has been updated.', { root: true });
 			});
 		},
 		deleteTask({ commit, state }, task) {
 			var index = state.tasks.indexOf(task);
 			if(index > -1) {
-				api.deleteTask('', task).then(function(res) {
+				api.delete(route.getUrl('deleteTask', 'api') + task.id, task).then(function(res) {
 					commit('removeTask', index);			
 					commit('notification/change', 'The task has been deleted.', { root: true });
 				})
 			}
 		},
 		addTask: function({ commit, dispatch }, task) {
-			api.addTask('', task).then(function(res) {
+			api.post(route.getUrl('addTask', 'api'), task).then(function(res) {
 				commit('notification/change', 'A new task has been added.', { root: true });
 			}).catch(function(errors) {
 				dispatch('errors/add', errors, { root: true });
