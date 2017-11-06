@@ -8,12 +8,14 @@ export default class {
 			api: {
 				tasks: 'api/tasks/',
 				updateTask: 'api/updateTask/',
+				editTask: 'api/editTask/',
 				addTask: 'api/addTask',
 				addQuickTask: 'api/addQuickTask',
 				deleteTask: 'api/deleteTask/',
 			},
 			web: {
 				addTask: 'add-task',
+				editTask: 'edit-task',
 				tasksUrl: ''
 			}
 		}

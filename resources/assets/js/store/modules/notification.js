@@ -4,12 +4,12 @@ export default {
 		message: ''	  
 	},
 	getters: {
-		getMessage(state) {
+		get(state) {
 			return state.message;
 		}
 	},
 	mutations: {
-		changeMessage(state, newMessage) {
+		change(state, newMessage) {
 			state.message = newMessage;
 		}
 	}

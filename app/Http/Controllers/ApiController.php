@@ -72,6 +72,19 @@ class ApiController extends Controller
 	public function deleteTask(UserRequest $request, Task $task) 
 	{	
 		$task->delete($task->id);
+	}
+
+	/**
+	 * Edit a task
+	 *
+	 * @param Request $request
+	 * @param Task $task
+	 * @return Collection
+	 */	
+	public function editTask(Request $request, Task $task) 
+	{	
+		
+		return $task;
 	}	
 
 }

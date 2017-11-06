@@ -17,7 +17,7 @@
 
 				<span class="task-actions pull-right">
 					<button v-on:click="deleteTask" class="btn btn-danger btn-xs">Delete</button>
-					<button class="btn btn-primary btn-xs">Edit</button>
+					<a class="btn btn-primary btn-xs" :href="editUrl">Edit</a>
 				</span>
 
 			</div>
@@ -35,6 +35,7 @@
 <script>
 
 	import TasksMixin from '../mixins/tasks.js';
+	import Route from '../route/index.js';
 
 	export default {
 		mixins: [TasksMixin],
@@ -43,9 +44,15 @@
 
 		data() {
 			return {
-				showDescription: false
+				showDescription: false,
+				editUrl: ''				
 			}
 		},
+
+		mounted() {
+			this.route = new Route();
+			this.editUrl = this.route.getUrl('editTask', 'web') + '/' + this.task.id;
+		},		
 
 		methods: {
 			changeCompleteStatus: function(task, status) {

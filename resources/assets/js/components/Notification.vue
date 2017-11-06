@@ -16,13 +16,13 @@
 		},
 		methods: {
 			afterLeave: function (el) {
-				this.$store.commit('notification/changeMessage', '');
+				this.$store.commit('notification/change', '');
 				
 			},
 		},
 		computed: {
 			message: function () {
-				return this.$store.getters['notification/getMessage'];
+				return this.$store.getters['notification/get'];
 			}
 		},
 		watch: {

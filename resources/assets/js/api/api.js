@@ -14,7 +14,7 @@ export default class {
 	 * Send a request to a given URL. 
 	 * A callback function is executed after the request.
 	 */
-	execute(data, url, callback, method = 'get', callbackError) {
+	execute(data, url, callback, method = 'get') {
 		if(!url) {
 			return false;
 		}
@@ -35,10 +35,7 @@ export default class {
 			})
 			.catch(function (errors) {
 
-				callbackError(errors.response.data)
-
 				reject(errors.response.data);
-
 			});	
 		});
 	}

@@ -15,3 +15,4 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/add-task', 'TaskController@create')->name('add-task');
+Route::get('/edit-task/{task}', 'TaskController@edit')->name('edit-task');

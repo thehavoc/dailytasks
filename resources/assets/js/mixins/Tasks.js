@@ -1,11 +1,11 @@
 import Route from '../route/index.js';
 import Datepicker from 'vuejs-datepicker';
 import DateMixin from '../mixins/date.js';
-import FormMixin from '../mixins/form.js';
+import ErrorsMixin from '../mixins/errors.js';
 import moment from 'moment';
 
 export default {
-	mixins: [ DateMixin, FormMixin ],
+	mixins: [ DateMixin, ErrorsMixin ],
 	components: { Datepicker },
 
 	methods: {
@@ -39,6 +39,6 @@ export default {
 			this.task = this.getDefaultTaskProperties();
 		}	
 
-	}
+	},
 
 }

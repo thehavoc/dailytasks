@@ -30,15 +30,17 @@ export default {
 			});
 			
 		},
-		addQuickTask: function({ commit }, task) {
+		addQuickTask: function({ commit, dispatch }, task) {
 			api.addQuickTask('', task).then(function(res) {
 				commit('pushTask', res);
-				commit('notification/changeMessage', 'A new task has been added.', { root: true });
+				commit('notification/change', 'A new task has been added.', { root: true });
+			}).catch(function(errors) {
+				dispatch('errors/add', errors, { root: true });
 			});
 		},
 		updateTask: function({ commit }, task) {
 			api.updateTask('', task).then(function() {
-				commit('notification/changeMessage', 'The task has been updated.', { root: true });
+				commit('notification/change', 'The task has been updated.', { root: true });
 			});
 		},
 		deleteTask({ commit, state }, task) {
@@ -46,9 +48,16 @@ export default {
 			if(index > -1) {
 				api.deleteTask('', task).then(function(res) {
 					commit('removeTask', index);			
-					commit('notification/changeMessage', 'The task has been deleted.', { root: true });
+					commit('notification/change', 'The task has been deleted.', { root: true });
 				})
 			}
-		}
+		},
+		addTask: function({ commit, dispatch }, task) {
+			api.addTask('', task).then(function(res) {
+				commit('notification/change', 'A new task has been added.', { root: true });
+			}).catch(function(errors) {
+				dispatch('errors/add', errors, { root: true });
+			});
+		},		
 	}
 }

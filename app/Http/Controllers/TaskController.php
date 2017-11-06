@@ -59,7 +59,9 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
+        $data['title'] = 'Edit Task';
 
+        return view('edit-task', $data);        
     }
 
     /**

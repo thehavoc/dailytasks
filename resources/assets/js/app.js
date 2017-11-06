@@ -18,6 +18,7 @@ window.Vue = require('vue');
 Vue.component('usertasks', require('./components/UserTasks.vue'));
 Vue.component('addtask', require('./components/AddTask.vue'));
 Vue.component('notification', require('./components/Notification.vue'));
+Vue.component('edittask', require('./components/editTask.vue'));
 
 import store from './store'
 

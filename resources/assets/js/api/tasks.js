@@ -18,8 +18,8 @@ export default class extends Api {
 		return super.execute(task, this.route.getUrl('updateTask', 'api') + task.id , callback, 'patch');
 	}    
 
-	addTask(callback, task, callbackError) {
-		super.execute(task, this.route.getUrl('addTask', 'api'), callback, 'post', callbackError);
+	addTask(callback, task) {
+		return super.execute(task, this.route.getUrl('addTask', 'api'), callback, 'post');
 	}
 
 	addQuickTask(callback, task) {
