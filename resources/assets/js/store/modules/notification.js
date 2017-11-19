@@ -9,7 +9,7 @@ export default {
 		}
 	},
 	mutations: {
-		change(state, newMessage) {
+		CHANGE(state, newMessage) {
 			state.message = newMessage;
 		}
 	}

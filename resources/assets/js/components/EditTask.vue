@@ -25,7 +25,7 @@
 		mounted() {
 			var vm = this;
 
-			this.$store.dispatch('tasks/getTask', this.getTaskId()).then(function(res) {
+			this.$store.dispatch('tasks/task', this.getTaskId()).then(function(res) {
 				vm.task = res;
 			});
 		},
@@ -34,7 +34,7 @@
 			editTask: function(e) {
 				e.preventDefault();
 
-				this.$store.dispatch('tasks/updateTask', this.task);
+				this.$store.dispatch('tasks/update', this.task);
 			},
 			getTaskId: function() {
 				return window.location.href.substr(window.location.href.lastIndexOf('/') + 1);			

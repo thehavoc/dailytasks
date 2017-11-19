@@ -57,11 +57,11 @@
 		methods: {
 			changeCompleteStatus: function(task, status) {
 				task.completed = !task.completed;
-				this.$store.dispatch('tasks/updateTask', task);				
+				this.$store.dispatch('tasks/update', task);				
 			},
 
 			deleteTask() {
-				this.$store.dispatch('tasks/deleteTask', this.task)
+				this.$store.dispatch('tasks/delete', this.task)
 			},
 			
 			toggleDescription(e) {

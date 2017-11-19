@@ -9,21 +9,21 @@ export default {
 		}				
 	},
 	mutations: {
-		set(state, newErrors) {
+		SET(state, newErrors) {
 			state.errors = newErrors;
 			
 		},
-		remove(state, field) {
+		REMOVE(state, field) {
 			state.errors = {}
 		}		
 	},
 	actions: {
 		add({ commit, state }, errors) {
-			commit('set', errors);
+			commit('SET', errors);
 		},
 
 		clear({ commit }, field) {
-			commit('remove', field);	
+			commit('REMOVE', field);	
 		}
 	}
 }

@@ -34,7 +34,7 @@
 
 				var vm = this;
 
-				this.$store.dispatch('tasks/addTask', this.task).then(function() {
+				this.$store.dispatch('tasks/add', this.task).then(function() {
 					vm.task = vm.getDefaultTaskProperties();
 				});
 			},

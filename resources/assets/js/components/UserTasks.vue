@@ -33,7 +33,7 @@
 
 			this.addTaskUrl = this.route.getUrl('addTask', 'web')
 
-			this.$store.dispatch('tasks/getTasks', this.date);
+			this.$store.dispatch('tasks/get', this.date);
 		},
 
 		data() {
@@ -95,7 +95,7 @@
 
 		watch: {
 			date: function(newDate) {
-				this.$store.dispatch('tasks/getTasks', this.date);
+				this.$store.dispatch('tasks/get', this.date);
 			}
 		}
 

@@ -16,7 +16,7 @@
 		},
 		methods: {
 			afterLeave: function (el) {
-				this.$store.commit('notification/change', '');
+				this.$store.commit('notification/CHANGE', '');
 				
 			},
 		},
