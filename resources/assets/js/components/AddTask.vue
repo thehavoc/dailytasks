@@ -6,7 +6,10 @@
 	</div>
 </template>
 
-<script>	
+<script>
+	/**
+	 * The component that renders the Add a Task main form.
+	 */	 
 	import TasksMixin from '../mixins/tasks.js';
 	import SaveFormTask from './SaveFormTask.vue';
 	
@@ -21,7 +24,11 @@
 			}
 		},
 
-
+		/**
+		 * Execute the default Task actions from TasksMixin;
+		 * get the web tasks URL;
+		 * set a default task date.
+		 */
 		mounted() {
 			this.executeDefaultAddTaskActions();
 			this.tasksUrl = this.route.getUrl('tasksUrl', 'web')
@@ -29,12 +36,17 @@
 		},
 
 		methods: {
-			add: function(e) {
-				e.preventDefault();
+			/**
+			 * Show/hide the description of the task.
+			 * @param {Object} event
+			 * @return {Promise}
+			 */			
+			add: function(event) {
+				event.preventDefault();
 
 				var vm = this;
 
-				this.$store.dispatch('tasks/add', this.task).then(function() {
+				return this.$store.dispatch('tasks/add', this.task).then(function() {
 					vm.task = vm.getDefaultTaskProperties();
 				});
 			}

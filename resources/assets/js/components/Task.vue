@@ -81,11 +81,11 @@
 			
 			/**
 			 * Show/hide the description of the task.
-			 * @param {Object} e
+			 * @param {Object} event
 			 * @return {Boolean}
-			 */			
-			toggleDescription(e) {
-				e.preventDefault();
+			 */	
+			toggleDescription(event) {
+				event.preventDefault();
 
 				if(this.task.description) {
 					this.showDescription = !this.showDescription;
