@@ -2,7 +2,7 @@
 	<div>
 		<SaveFormTask :task="task"></SaveFormTask>
 
-		<button v-on:click="editTask" class="btn btn-success" :disabled="hasErrors()">Edit</button>
+		<button v-on:click="edit" class="btn btn-success" :disabled="hasErrors()">Edit</button>
 	</div>
 </template>
 
@@ -25,18 +25,18 @@
 		mounted() {
 			var vm = this;
 
-			this.$store.dispatch('tasks/task', this.getTaskId()).then(function(res) {
+			this.$store.dispatch('tasks/task', this.getId()).then(function(res) {
 				vm.task = res;
 			});
 		},
 
 		methods: {
-			editTask: function(e) {
+			edit: function(e) {
 				e.preventDefault();
 
 				this.$store.dispatch('tasks/update', this.task);
 			},
-			getTaskId: function() {
+			getId: function() {
 				return window.location.href.substr(window.location.href.lastIndexOf('/') + 1);			
 			}
 		}

@@ -1,13 +1,13 @@
 <template>
 	<div class="user-tasks">
-		<datepicker :value="date" v-on:selected="fetchDateTasks" input-class="form-control"></datepicker>
+		<datepicker :value="date" v-on:selected="fetch" input-class="form-control"></datepicker>
 		
 		<NewQuickTask :date="date"></NewQuickTask>
 		
 		<div class="tasks-list" v-if="tasks[0]">
-			<TasksList title="Active tasks" :tasks="todoTasks"></TasksList>
+			<TasksList title="Active tasks" :tasks="todo"></TasksList>
 			
-			<TasksList title="Completed tasks" :tasks="completedTasks"></TasksList>
+			<TasksList title="Completed tasks" :tasks="completed"></TasksList>
 		</div>
 
 		<div v-else>
@@ -44,11 +44,11 @@
 		},
 
 		methods: {
-			fetchDateTasks: function(newDate) {
+			fetch: function(newDate) {
 				newDate = this.formatDate(newDate);
 				this.date = newDate;								
 			},			
-			sortTasks: function(tasks) {
+			sort: function(tasks) {
 				if(tasks) {
 					return tasks.sort(function (a, b) {
 						if(a.time_slot === null){
@@ -75,21 +75,21 @@
 			tasks: function() {
 				return this.$store.getters['tasks/tasks'];
 			},
-			completedTasks: function () {
+			completed: function () {
 
 				var tasks = this.tasks.filter(function (task) {
 					return task.completed;
 				});
 
-				return this.sortTasks(tasks);
+				return this.sort(tasks);
 			},
 
-			todoTasks: function () {
+			todo: function () {
 				var tasks = this.tasks.filter(function (task) {
 					return !task.completed;
 				})
 
-				return this.sortTasks(tasks);
+				return this.sort(tasks);
 			},            
 		},
 

@@ -5,7 +5,7 @@
 				<div class="form-group">
 					<input type="text" v-model="task.title" class="form-control text-field" placeholder="Title">					
 					
-					<button v-on:click="addTask" class="btn btn-success">Submit</button>
+					<button v-on:click="add" class="btn btn-success">Submit</button>
 				</div>
 				
 				<div class="alert alert-danger" v-show="getError('title')" v-text="getError('title')"></div>
@@ -36,7 +36,7 @@
 
 		methods: {
 
-			addTask: function(e) {
+			add: function(e) {
 				e.preventDefault();
 
 				this.task.added_to = this.date;

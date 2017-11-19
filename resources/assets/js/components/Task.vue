@@ -11,12 +11,12 @@
 
 			<div class="col-md-4">
 
-				<input v-on:click="changeCompleteStatus(task)" :checked="task.completed"  type="checkbox" class="pull-right" />
+				<input v-on:click="changeStatus(task)" :checked="task.completed"  type="checkbox" class="pull-right" />
 
 				<span class="pull-right task-time-slot" v-if="task.time_slot">{{ task.time_slot }}</span>
 
 				<span class="task-actions pull-right">
-					<button v-on:click="deleteTask" class="btn btn-danger btn-xs">Delete</button>
+					<button v-on:click="remove" class="btn btn-danger btn-xs">Delete</button>
 					<a class="btn btn-primary btn-xs" :href="editUrl">Edit</a>
 				</span>
 
@@ -55,12 +55,12 @@
 		},		
 
 		methods: {
-			changeCompleteStatus: function(task, status) {
+			changeStatus: function(task, status) {
 				task.completed = !task.completed;
 				this.$store.dispatch('tasks/update', task);				
 			},
 
-			deleteTask() {
+			remove() {
 				this.$store.dispatch('tasks/delete', this.task)
 			},
 			

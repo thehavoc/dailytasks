@@ -2,7 +2,7 @@
 	<div>
 		<SaveFormTask :task="task"></SaveFormTask>
 
-		<button v-on:click="addTask" class="btn btn-success" :disabled="hasErrors()">Submit</button>
+		<button v-on:click="add" class="btn btn-success" :disabled="hasErrors()">Submit</button>
 	</div>
 </template>
 
@@ -29,7 +29,7 @@
 		},
 
 		methods: {
-			addTask: function(e) {
+			add: function(e) {
 				e.preventDefault();
 
 				var vm = this;
@@ -37,9 +37,6 @@
 				this.$store.dispatch('tasks/add', this.task).then(function() {
 					vm.task = vm.getDefaultTaskProperties();
 				});
-			},
-			setTaskDate: function(date) {
-				this.task.added_to = this.formatDate(date);
 			}
 		}
 	}
