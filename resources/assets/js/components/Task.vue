@@ -33,7 +33,9 @@
 </template>
 
 <script>
-
+	/**
+	 * This is the task component that is used on the listing tasks page.
+	 */			
 	import TasksMixin from '../mixins/tasks.js';
 	import Route from '../route/index.js';
 
@@ -49,31 +51,55 @@
 			}
 		},
 
+		/**
+		 * Load the route and prepare the edit URL of the task.
+		 */
 		mounted() {
 			this.route = new Route();
 			this.editUrl = this.route.getUrl('editTask', 'web') + '/' + this.task.id;
 		},		
 
 		methods: {
+			/**
+			 * Dispatch a request to the sotre to change the status of the task.
+			 * @param {Object} task
+			 * @param {Boolen} status
+			 * @return {Promise}
+			 */			
 			changeStatus: function(task, status) {
 				task.completed = !task.completed;
-				this.$store.dispatch('tasks/update', task);				
+				return this.$store.dispatch('tasks/update', task);				
 			},
 
+			/**
+			 * Dispatch a request to the sotre to remove the task from the database.
+			 * @return {Promise}
+			 */
 			remove() {
-				this.$store.dispatch('tasks/delete', this.task)
+				return this.$store.dispatch('tasks/delete', this.task)
 			},
 			
+			/**
+			 * Show/hide the description of the task.
+			 * @param {Object} e
+			 * @return {Boolean}
+			 */			
 			toggleDescription(e) {
 				e.preventDefault();
 
 				if(this.task.description) {
 					this.showDescription = !this.showDescription;
 				}
+
+				return this.showDescription;
 			},		
 
 		},
 		computed: {
+			/**
+			 * Whether the task is past.
+			 * @return {Boolean}
+			 */					
 			past: function() {
 				return this.pastTask();
 			}
