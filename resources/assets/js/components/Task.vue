@@ -61,7 +61,7 @@
 
 		methods: {
 			/**
-			 * Dispatch a request to the sotre to change the status of the task.
+			 * Dispatch a request to the store to change the status of the task.
 			 * @param {Object} task
 			 * @param {Boolean} status
 			 * @return {Promise}
@@ -72,7 +72,7 @@
 			},
 
 			/**
-			 * Dispatch a request to the sotre to remove the task from the database.
+			 * Dispatch a request to the store to remove the task from the database.
 			 * @return {Promise}
 			 */
 			remove() {

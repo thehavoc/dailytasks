@@ -37,7 +37,7 @@
 
 		methods: {
 			/**
-			 * Show/hide the description of the task.
+			 * Dispatch a request to the store to add a task.
 			 * @param {Object} event
 			 * @return {Promise}
 			 */			
