@@ -63,7 +63,7 @@
 			/**
 			 * Dispatch a request to the sotre to change the status of the task.
 			 * @param {Object} task
-			 * @param {Boolen} status
+			 * @param {Boolean} status
 			 * @return {Promise}
 			 */			
 			changeStatus: function(task, status) {
