@@ -7,6 +7,10 @@
 </template>
 
 <script>	
+	/**
+	 * This component is used for rendering the edit a Task form. 
+	 * Load the SaveFormTask component that includes the main task fields.
+	 */
 	import TasksMixin from '../mixins/tasks.js';
 	
 	import SaveFormTask from './SaveFormTask.vue';
@@ -22,6 +26,9 @@
 			}
 		},
 
+		/**
+		 * Load the data of the particular edited task.
+		 */
 		mounted() {
 			var vm = this;
 
@@ -31,11 +38,20 @@
 		},
 
 		methods: {
-			edit: function(e) {
-				e.preventDefault();
+			/**
+			 * Dispatch a request to the store to update the task.
+			 * @param {Object} event
+			 * @return {Promise}
+			 */	
+			edit: function(event) {
+				event.preventDefault();
 
-				this.$store.dispatch('tasks/update', this.task);
+				return this.$store.dispatch('tasks/update', this.task);
 			},
+			/**
+			 * Get the ID from the visited edit task URL.
+			 * @return {Integer}
+			 */				
 			getId: function() {
 				return window.location.href.substr(window.location.href.lastIndexOf('/') + 1);			
 			}
