@@ -1,3 +1,7 @@
+/**
+ * Helpful methods used by task components.
+ */
+
 import Route from '../route/index.js';
 import Datepicker from 'vuejs-datepicker';
 import DateMixin from '../mixins/date.js';
@@ -9,7 +13,10 @@ export default {
 	components: { Datepicker },
 
 	methods: {
-
+		/**
+		 * Get the default tasks properties
+		 * @return {Object}
+		 */
 		getDefaultTaskProperties() {
 			return {
 				title: '',
@@ -20,6 +27,10 @@ export default {
 			}
 		},
 
+		/**
+		 * Check if the date of a task is past
+		 * @return {Boolean}
+		 */
 		pastTask() {
 			var time = '23:59';
 
@@ -34,6 +45,11 @@ export default {
 			return false;
 		},
 
+		/**
+		 * Initialize the route class.
+		 * Add the default task properties to the task object.
+		 * @return void
+		 */
 		executeDefaultAddTaskActions() {
 			this.route = new Route();
 			this.task = this.getDefaultTaskProperties();

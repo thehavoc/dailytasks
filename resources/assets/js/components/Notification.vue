@@ -28,7 +28,7 @@
 		},
 		computed: {
 			/**
-			 * Get the notification message from the store.
+			 * Get the current notification message from the store.
 			 * @return {Promise}
 			 */			
 			message: function () {
@@ -37,7 +37,7 @@
 		},
 		watch: {
 			/**
-			 * Get the notification message from the store.
+			 * Hide the current notificaiton message after a specific period
 			 * @return void
 			 */				
 			message: function() {

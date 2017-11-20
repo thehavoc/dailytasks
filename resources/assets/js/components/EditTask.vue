@@ -9,7 +9,7 @@
 <script>	
 	/**
 	 * Render the Edit a Task form. 
-	 * Load the SaveFormTask component that includes the main task fields.
+	 * Load a child component that includes the main task fields.
 	 */
 	import TasksMixin from '../mixins/tasks.js';
 	
@@ -27,7 +27,7 @@
 		},
 
 		/**
-		 * Load the data of the particular edited task.
+		 * Load the data of an edited task.
 		 */
 		mounted() {
 			var vm = this;
@@ -39,7 +39,7 @@
 
 		methods: {
 			/**
-			 * Dispatch a request to the store to update the task.
+			 * Dispatch a request to the store to update a task.
 			 * @param {Object} event
 			 * @return {Promise}
 			 */

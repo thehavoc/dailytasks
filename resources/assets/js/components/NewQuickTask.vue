@@ -32,7 +32,7 @@
 			}
 		},
 		/**
-		 * Execute the default Task actions from TasksMixin.
+		 * Execute the default Task actions from a mixin.
 		 */
 		mounted() {
 			this.executeDefaultAddTaskActions();
