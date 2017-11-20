@@ -8,7 +8,7 @@
 
 <script>
 	/**
-	 * The component that renders the Add a Task main form.
+	 * Render the Add a Task main form.
 	 * Load the SaveFormTask component that includes the main task fields.
 	 */
 	import TasksMixin from '../mixins/tasks.js';
@@ -26,13 +26,15 @@
 		},
 
 		/**
-		 * Execute the default Task actions from TasksMixin;
-		 * get the web tasks URL;
-		 * set a default task date.
+		 * Execute the default Task actions from a mixin.
+		 * Get the web tasks URL.
+		 * Set a default task date.
 		 */
 		mounted() {
 			this.executeDefaultAddTaskActions();
+
 			this.tasksUrl = this.route.getUrl('tasksUrl', 'web')
+			
 			this.task.added_to = this.getCurrentDate();			
 		},
 
@@ -41,7 +43,7 @@
 			 * Dispatch a request to the store to add a task.
 			 * @param {Object} event
 			 * @return {Promise}
-			 */			
+			 */
 			add: function(event) {
 				event.preventDefault();
 

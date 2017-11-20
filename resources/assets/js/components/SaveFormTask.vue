@@ -39,7 +39,10 @@
 
 </template>
 
-<script>	
+<script>
+	/**
+	 * A child component that displays all main task fields.
+	 */
 	import TasksMixin from '../mixins/tasks.js';
 	
 	import Route from '../route/index.js';
@@ -49,6 +52,11 @@
 
 		props: ['task'],
 
+		/**
+		 * Initialize the route class.
+		 * Prepare the tasks URL.
+		 * Load the time slots to the form.
+		 */
 		mounted() {
 			this.route = new Route();
 
@@ -66,7 +74,10 @@
 		},
 		
 		methods: {
-
+			/**
+			 * Prepare the time slots.
+			 * @return {Array} this.timeslots
+			 */
 			getTimeSlots: function(){
 				var first_slot = 8;
 				var last_slot = 19
@@ -87,10 +98,17 @@
 						this.timeslots.push(time + ':' + intervals[j] );
 					}
 				}
+
+				return this.timeslots;
 			},
 
+			/**
+			 * Set the task date
+			 * @param {String} date
+			 * @return {String} this.task.added_to
+			 */
 			setTaskDate: function(date) {
-				this.task.added_to = this.formatDate(date);
+				return this.task.added_to = this.formatDate(date);
 			},		
 		}
 	}

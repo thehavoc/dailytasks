@@ -16,7 +16,9 @@
 </template>
 
 <script>
-
+	/**
+	 * Render the quick add a task form.
+	 */
 	import TasksMixin from '../mixins/tasks.js';
 
 	export default {
@@ -29,21 +31,27 @@
 				task: Object,
 			}
 		},
-
+		/**
+		 * Execute the default Task actions from TasksMixin.
+		 */
 		mounted() {
 			this.executeDefaultAddTaskActions();
 		},
 
 		methods: {
-
-			add: function(e) {
-				e.preventDefault();
+			/**
+			 * Dispatch a request to the store to add a task.
+			 * @param {Object} event
+			 * @return {Promise}
+			 */
+			add: function(event) {
+				event.preventDefault();
 
 				this.task.added_to = this.date;
 
 				var vm = this;
 
-				this.$store.dispatch('tasks/quickAdd', this.task).then(function() {
+				return this.$store.dispatch('tasks/quickAdd', this.task).then(function() {
 					vm.task.title = ''
 				});
 			}

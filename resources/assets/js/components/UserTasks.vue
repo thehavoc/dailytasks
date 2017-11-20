@@ -1,6 +1,6 @@
 <template>
 	<div class="user-tasks">
-		<datepicker :value="date" v-on:selected="fetch" input-class="form-control"></datepicker>
+		<datepicker :value="date" v-on:selected="setDate" input-class="form-control"></datepicker>
 		
 		<NewQuickTask :date="date"></NewQuickTask>
 		
@@ -19,6 +19,9 @@
 </template>
 
 <script>
+	/**
+	 * The main listing component that displays both todo and completed tasks.
+	 */
 	import NewQuickTask from './NewQuickTask.vue';
 	import TasksList from './TasksList.vue';
 	import TasksMixin from '../mixins/tasks.js';
@@ -28,6 +31,11 @@
 
 		components: { NewQuickTask, TasksList },
 
+		/**
+		 * Execute the default Task actions from a mixin.
+		 * Get the add tasks URL.
+		 * Dispatch a request to the store to get all tasks of the current logged-in user.
+		 */
 		mounted() {
 			this.executeDefaultAddTaskActions();
 
@@ -44,10 +52,22 @@
 		},
 
 		methods: {
-			fetch: function(newDate) {
+			/**
+			 * Set a date
+			 * @param {String} newDate
+			 * @return {String}
+			 */
+			setDate: function(newDate) {
 				newDate = this.formatDate(newDate);
-				this.date = newDate;								
-			},			
+
+				return this.date = newDate;
+			},
+
+			/**
+			 * Sort the tasks by time slots
+			 * @param {Object} tasks
+			 * @return {Object}
+			 */
 			sort: function(tasks) {
 				if(tasks) {
 					return tasks.sort(function (a, b) {
@@ -72,11 +92,19 @@
 		},
 
 		computed: {
+			/**
+			 * Get the tasks from the store
+			 * @return {Object}
+			 */	
 			tasks: function() {
 				return this.$store.getters['tasks/tasks'];
 			},
-			completed: function () {
 
+			/**
+			 * Prepare the completed tasks.
+			 * @return {Object}
+			 */
+			completed: function () {
 				var tasks = this.tasks.filter(function (task) {
 					return task.completed;
 				});
@@ -84,6 +112,10 @@
 				return this.sort(tasks);
 			},
 
+			/**
+			 * Prepare the todo tasks.
+			 * @return {Object}
+			 */
 			todo: function () {
 				var tasks = this.tasks.filter(function (task) {
 					return !task.completed;
@@ -94,8 +126,12 @@
 		},
 
 		watch: {
+			/**
+			 * Dispatch a request to the store to get the logged-in user's tasks of a selected date.
+			 * @return {Promise}
+			 */			
 			date: function(newDate) {
-				this.$store.dispatch('tasks/get', this.date);
+				return this.$store.dispatch('tasks/get', this.date);
 			}
 		}
 

@@ -11,7 +11,9 @@
 </template>
 
 <script>
-
+	/**
+	 * A child component that displays all tasks into a list.
+	 */
 	import Task from './Task.vue';
 
 	export default {

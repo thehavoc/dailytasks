@@ -34,7 +34,7 @@
 
 <script>
 	/**
-	 * This is the task component that is used on the listing tasks page.
+	 * A child component that is used on the listing tasks page.
 	 */			
 	import TasksMixin from '../mixins/tasks.js';
 	import Route from '../route/index.js';
@@ -52,10 +52,12 @@
 		},
 
 		/**
-		 * Load the route and prepare the edit URL of the task.
+		 * Initialize the route class.
+		 * Prepare the edit URL of the task.
 		 */
 		mounted() {
 			this.route = new Route();
+
 			this.editUrl = this.route.getUrl('editTask', 'web') + '/' + this.task.id;
 		},		
 
@@ -65,9 +67,10 @@
 			 * @param {Object} task
 			 * @param {Boolean} status
 			 * @return {Promise}
-			 */			
+			 */		
 			changeStatus: function(task, status) {
 				task.completed = !task.completed;
+				
 				return this.$store.dispatch('tasks/update', task);				
 			},
 

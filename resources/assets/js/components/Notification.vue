@@ -7,7 +7,9 @@
 </template>
 
 <script>
-
+	/**
+	 * Show a box with a message when an action completes.
+	 */			
 	export default {
 		data() {
 			return {
@@ -15,17 +17,29 @@
 			}
 		},
 		methods: {
-			afterLeave: function (el) {
-				this.$store.commit('notification/CHANGE', '');
+			/**
+			 * Dispatch a request to the store to clear the notification message when the "after leave" transition finishes.
+			 * @return {Promise}
+			 */		
+			afterLeave: function () {
+				return this.$store.commit('notification/CHANGE', '');
 				
 			},
 		},
 		computed: {
+			/**
+			 * Get the notification message from the store.
+			 * @return {Promise}
+			 */			
 			message: function () {
 				return this.$store.getters['notification/get'];
 			}
 		},
 		watch: {
+			/**
+			 * Get the notification message from the store.
+			 * @return void
+			 */				
 			message: function() {
 				if(this.message) {
 					this.show = true;

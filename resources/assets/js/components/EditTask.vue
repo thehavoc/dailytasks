@@ -8,7 +8,7 @@
 
 <script>	
 	/**
-	 * This component is used for rendering the edit a Task form. 
+	 * Render the Edit a Task form. 
 	 * Load the SaveFormTask component that includes the main task fields.
 	 */
 	import TasksMixin from '../mixins/tasks.js';
@@ -42,14 +42,15 @@
 			 * Dispatch a request to the store to update the task.
 			 * @param {Object} event
 			 * @return {Promise}
-			 */	
+			 */
 			edit: function(event) {
 				event.preventDefault();
 
 				return this.$store.dispatch('tasks/update', this.task);
 			},
+
 			/**
-			 * Get the ID from the visited edit task URL.
+			 * Get the ID from a visited edit task URL.
 			 * @return {Integer}
 			 */				
 			getId: function() {
