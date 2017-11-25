@@ -25,7 +25,7 @@ export default {
 	},
 	mutations: {
 		/**
-		 * Set tasks to the store.
+		 * Set tasks to the state.
 		 * @param {Object} state
 		 * @param {Object} tasks
 		 * @return void
@@ -35,7 +35,7 @@ export default {
 		},
 
 		/**
-		 * Add a task to the store.
+		 * Add a task to the state.
 		 * @param {Object} state
 		 * @param {Object} task
 		 * @return void
@@ -45,7 +45,7 @@ export default {
 		},
 
 		/**
-		 * Remove a task from the store.
+		 * Remove a task from the state.
 		 * @param {Object} state
 		 * @param {Object} task
 		 * @return void

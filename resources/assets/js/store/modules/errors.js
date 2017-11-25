@@ -20,7 +20,7 @@ export default {
 	},
 	mutations: {
 		/**
-		 * Add all errors to the store.
+		 * Add all errors to the state.
 		 * @param {Object} state
 		 * @param {newErrors} newErrors
 		 * @return void
@@ -31,7 +31,7 @@ export default {
 		},
 
 		/**
-		 * Remove all errors to the store
+		 * Remove all errors to the state.
 		 * @param {Object} state
 		 * @return void
 		 */
@@ -41,7 +41,7 @@ export default {
 	},
 	actions: {
 		/**
-		 * Add errors to the store using a mutator
+		 * Add errors to the state using a mutator
 		 * @param {Object} commit and state
 		 * @param {Object} errors
 		 * @return void
