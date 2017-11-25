@@ -37,7 +37,7 @@
 		},
 		watch: {
 			/**
-			 * Hide the current notificaiton message after a specific period
+			 * Hide the current notification message after a specific period
 			 * @return void
 			 */				
 			message: function() {

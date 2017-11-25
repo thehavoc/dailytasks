@@ -29,6 +29,8 @@ class User extends Authenticatable
 
     /**
      * Get the daily tasks of the logged in user.
+     * 
+     * @return collection
      */
     public function tasks()
     {

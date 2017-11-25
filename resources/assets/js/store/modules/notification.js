@@ -9,7 +9,7 @@ export default {
 	},
 	getters: {
 		/**
-		 * Get a message.
+		 * Get the message.
 		 * @param {Object} state
 		 * @return {String}
 		 */

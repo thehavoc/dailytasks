@@ -8,87 +8,41 @@ use Auth;
 
 class TaskController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+	/*
+	|--------------------------------------------------------------------------
+	| Tasks Controller
+	|--------------------------------------------------------------------------
+	|
+	| This controller shows the edit and create task pages.
+	|
+	*/  
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $data['title'] = 'Add a Task';
+	/**
+	 * Show the form for creating a task.
+	 *
+	 * @return view
+	 */
+	public function create()
+	{
+		$data['title'] = 'Add a Task';
 
-        return view('add-task', $data);
-    }
+		return view('add-task', $data);
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+	/**
+	 * Show the form for editing a task.
+	 *
+	 * @param  \App\Task  $task
+	 * @return view
+	 */
+	public function edit(Task $task)
+	{
+		if(Auth::id() !== $task->user_id) {
+			return abort('403');
+		}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Task  $task
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Task $task)
-    {
-        //
-    }
+		$data['title'] = 'Edit Task';
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Task  $task
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Task $task)
-    {
-        if(Auth::id() !== $task->user_id) {
-            return abort('403');
-        }
-
-        $data['title'] = 'Edit Task';
-
-        return view('edit-task', $data);        
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Task  $task
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Task $task)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Task  $task
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Task $task)
-    {
-        //
-    }
+		return view('edit-task', $data);        
+	}
 }

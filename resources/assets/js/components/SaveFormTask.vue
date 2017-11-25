@@ -103,7 +103,7 @@
 			},
 
 			/**
-			 * Set the task date
+			 * Set the task date.
 			 * @param {String} date
 			 * @return {String} this.task.added_to
 			 */

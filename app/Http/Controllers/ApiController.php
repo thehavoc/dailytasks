@@ -12,8 +12,17 @@ use App\Http\Requests\UserRequest;
 
 class ApiController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | API Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller is responsible for providing, updating and delete data from the database.
+    |
+    */	
+
 	/**
-	 * Get all tasks of a user
+	 * Get all tasks of a user.
 	 *
 	 * @return Collection
 	 */	
@@ -22,7 +31,7 @@ class ApiController extends Controller
 		return Auth::user()->tasks()->where('added_to', $request->date)->get();    	
 	}	
 	/**
-	 * Get a task
+	 * Get a task.
 	 *
 	 * @param Task $task
 	 * @return Collection
@@ -33,7 +42,7 @@ class ApiController extends Controller
 	}	
 
 	/**
-	 * Update a task
+	 * Update a task.
 	 *
 	 * @param UpdateTaskRequest $request
 	 * @param Task $task
@@ -46,7 +55,7 @@ class ApiController extends Controller
 	}	
 
 	/**
-	 * Add a task
+	 * Add a task.
 	 *
 	 * @param AddTaskRequest $request
 	 * @param Task $task
@@ -60,7 +69,7 @@ class ApiController extends Controller
 	} 
 
 	/**
-	 * Add a quick task
+	 * Add a quick task.
 	 *
 	 * @param AddQuickTaskRequest $request
 	 * @param Task $task
@@ -74,7 +83,7 @@ class ApiController extends Controller
 	} 
 
 	/**
-	 * Remove a task
+	 * Remove a task.
 	 *
 	 * @param UserRequest $request
 	 * @param Task $task
