@@ -61,7 +61,7 @@ export default {
 		 * @param {Object} date
 		 * @return {Promise}
 		 */
-		get(commit, date) {
+		get({ commit }, date) {
 			return api.get(route.getUrl('tasks', 'api') + date).then(function(res) {
 				commit('SET', res);
 			});
@@ -74,7 +74,7 @@ export default {
 		 * @param {Integer} id
 		 * @return {Promise}
 		 */		
-		task(commit, id) {
+		task({ commit }, id) {
 			return api.get(route.getUrl('getTask', 'api') + id);
 		},		
 
@@ -99,7 +99,7 @@ export default {
 		 * @param {Object} task
 		 * @return {Promise}
 		 */		
-		update: function(commit, task) {
+		update: function({ commit }, task) {
 			return api.patch(route.getUrl('updateTask', 'api') + task.id, task).then(function() {
 				commit('notification/CHANGE', 'The task has been updated.', { root: true });
 			});

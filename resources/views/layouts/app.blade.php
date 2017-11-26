@@ -36,6 +36,8 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
+                    <Menu items="[{route: 'add-task', label: 'Add Task'}]"></Menu>
+                    
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('add-task') }}">Add Task</a></li>
                     </ul>
