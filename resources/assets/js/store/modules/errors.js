@@ -56,7 +56,7 @@ export default {
 		 * @return void
 		 */
 		clear(commit) {
-			commit('REMOVE', field);	
+			commit('REMOVE');	
 		}
 	}
 }
