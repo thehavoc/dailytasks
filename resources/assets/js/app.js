@@ -16,6 +16,7 @@ Vue.component('usertasks', require('./components/UserTasks.vue'));
 Vue.component('addtask', require('./components/AddTask.vue'));
 Vue.component('notification', require('./components/Notification.vue'));
 Vue.component('edittask', require('./components/editTask.vue'));
+Vue.component('navigation', require('./components/Navigation.vue'));
 
 import store from './store'
 

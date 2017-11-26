@@ -21,6 +21,8 @@ export default class {
 			web: {
 				addTask: 'add-task',
 				editTask: 'edit-task',
+				login: 'login',
+				register: 'register',
 				tasksUrl: ''
 			}
 		}
