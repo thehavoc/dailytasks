@@ -55,7 +55,7 @@ export default {
 		 * @param {Object} commit
 		 * @return void
 		 */
-		clear(commit) {
+		clear({ commit }) {
 			commit('REMOVE');	
 		}
 	}
