@@ -38,7 +38,7 @@
 		 */
 		mounted() {
 			this.executeDefaultAddTaskActions();
-
+			
 			this.addTaskUrl = this.route.getUrl('addTask', 'web')
 
 			this.$store.dispatch('tasks/get', this.date);

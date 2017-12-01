@@ -20,6 +20,9 @@
 			}
 		},
 
+		/**
+		 * Initialize the route class.
+		 */
 		created() {
 			this.route = new Route();
 		},
