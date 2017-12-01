@@ -1,5 +1,5 @@
 /**
- * Load all JavaScript dependencies which includes Vue and other libraries.
+ * The main app that loads all JavaScript dependencies that include Vue and other libraries.
  */
 
 require('./bootstrap');

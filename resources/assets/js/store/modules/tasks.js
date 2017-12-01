@@ -1,5 +1,5 @@
 /**
- * Store, update, delete and add tasks.
+ * This ia module that stores, updates, deletes and adds tasks.
  */
 
 import Api from '../../api/index.js';

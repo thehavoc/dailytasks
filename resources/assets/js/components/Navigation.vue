@@ -8,7 +8,7 @@
 
 <script>
 	/**
-	 * Show a menu.
+	 * This is a component that shows a menu. The `items` prop must be used.
 	 */
 	import Route from '../route/index.js';
 

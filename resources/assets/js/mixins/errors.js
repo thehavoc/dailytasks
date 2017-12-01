@@ -1,5 +1,5 @@
 /**
- * Helpful form errors methods.
+ * A mixin that provides reusable methods for handling form errors.
  */
 
 export default {

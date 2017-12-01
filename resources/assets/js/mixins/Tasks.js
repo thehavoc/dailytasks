@@ -1,5 +1,5 @@
 /**
- * Helpful methods used by task components.
+ * A mixin that provides reusable methods used by task components.
  */
 
 import Route from '../route/index.js';

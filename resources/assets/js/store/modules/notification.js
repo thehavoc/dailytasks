@@ -1,5 +1,5 @@
 /**
- * Store a notification message that is shown to the user once an action is completed(e.g. updating a task).
+ * This is a module that stores a notification message that is shown to the user once an action is completed(e.g. updating a task).
  */
 
 export default {

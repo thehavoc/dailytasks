@@ -34,7 +34,7 @@
 
 <script>
 	/**
-	 * A child component that is used on the listing tasks page.
+	 * A child component that is used on the listing tasks page. The `task` prop must be used.
 	 */			
 	import TasksMixin from '../mixins/tasks.js';
 	import Route from '../route/index.js';

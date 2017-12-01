@@ -1,5 +1,5 @@
 /**
- * Handle all Ajax requests of the app
+ * A class that handles all Ajax requests of the app.
  */
 
 import Route from '../route/index.js';

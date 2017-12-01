@@ -41,7 +41,7 @@
 
 <script>
 	/**
-	 * A child component that displays all main task fields.
+	 * This is a child component that displays all main task fields. The `task` prop must be used.
 	 */
 	import TasksMixin from '../mixins/tasks.js';
 	
@@ -87,14 +87,14 @@
 					'30'
 				];
 
-				for (var i = first_slot; i <= last_slot; i++) {
-					var time = i
+				for (let i = first_slot; i <= last_slot; i++) {
+					let time = i
 
 					if(time < 10) {
 						time = '0' + time;
 					}
 
-					for (var j = 0; j < intervals.length; j++) {
+					for (let j = 0; j < intervals.length; j++) {
 						this.timeslots.push(time + ':' + intervals[j] );
 					}
 				}

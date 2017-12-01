@@ -8,8 +8,8 @@
 
 <script>
 	/**
-	 * Render the Add a Task main form.
-	 * Load the SaveFormTask component that includes the main task fields.
+	 * This is a component that renders the Add a Task main form.
+	 * It loads the SaveFormTask component that includes the main task fields.
 	 */
 	import TasksMixin from '../mixins/tasks.js';
 	import SaveFormTask from './SaveFormTask.vue';

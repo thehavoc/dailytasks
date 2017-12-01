@@ -1,3 +1,6 @@
+/**
+ * The main boostrap JavaScript file.
+ */
 
 window._ = require('lodash');
 

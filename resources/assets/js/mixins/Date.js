@@ -1,5 +1,5 @@
 /**
- * Helpful date methods.
+ * A mixin that provides helpful date methods related to the app.
  */
 
 import moment from 'moment'

@@ -8,8 +8,8 @@
 
 <script>	
 	/**
-	 * Render the Edit a Task form. 
-	 * Load a child component that includes the main task fields.
+	 * This a component that renders the Edit a Task form. 
+	 * It also loads a child component that includes the main task fields.
 	 */
 	import TasksMixin from '../mixins/tasks.js';
 	

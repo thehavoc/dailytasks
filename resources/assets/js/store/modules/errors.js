@@ -1,6 +1,6 @@
 /**
- * Store errors provided by the API. 
- * Allow getting errors.
+ * This is a module that stores all form errors of the app. 
+ * It allows getting errors.
  */
 
 export default {

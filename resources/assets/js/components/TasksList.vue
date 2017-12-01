@@ -12,7 +12,7 @@
 
 <script>
 	/**
-	 * A child component that displays all tasks into a list.
+	 * A child component that displays all tasks into a list. The `tasks` prop must be used.
 	 */
 	import Task from './Task.vue';
 

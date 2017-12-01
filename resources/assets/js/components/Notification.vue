@@ -8,7 +8,7 @@
 
 <script>
 	/**
-	 * Show a box with a message when an action completes.
+	 * This is a component that shows a box with a message when an action completes.
 	 */			
 	export default {
 		data() {

@@ -1,5 +1,5 @@
 /**
- * Include all routes of the app
+ * This is a class that handles all routes of the app.
  */
 
 export default class {
@@ -23,6 +23,7 @@ export default class {
 				editTask: 'edit-task',
 				login: 'login',
 				register: 'register',
+				logout: 'logout',
 				tasksUrl: ''
 			}
 		}

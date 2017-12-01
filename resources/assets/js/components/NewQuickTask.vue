@@ -17,7 +17,7 @@
 
 <script>
 	/**
-	 * Render the quick add a task form.
+	 * This is a component that renders the Quick Add a Task form.
 	 */
 	import TasksMixin from '../mixins/tasks.js';
 
