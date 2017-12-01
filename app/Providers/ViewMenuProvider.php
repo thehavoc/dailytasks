@@ -79,7 +79,8 @@ class ViewMenuProvider extends ServiceProvider
 		$items = [
 			[
 				'route' => 'logout',
-				'label' => 'Logout'
+				'label' => 'Logout',
+				'event' => 'logout',
 			]
 		];
 

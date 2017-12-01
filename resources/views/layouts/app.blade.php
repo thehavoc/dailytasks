@@ -48,6 +48,10 @@
 
                     @else
                         <Navigation :items="{{ $profileMainMenu }}" classes="navbar-right"></Navigation>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">        
+                            {{ csrf_field() }}        
+                        </form>
                     @endif
                 </div>
             </div>

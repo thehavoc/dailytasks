@@ -76,10 +76,12 @@
 
 			/**
 			 * Dispatch a request to the store to remove the task from the database.
-			 * @return {Promise}
+			 * @return {mixed} Promise or void
 			 */
 			remove() {
-				return this.$store.dispatch('tasks/delete', this.task)
+				if(confirm('Are you sure you want to delete this item?')) {
+					return this.$store.dispatch('tasks/delete', this.task)
+				}
 			},
 			
 			/**

@@ -23,7 +23,7 @@ export default class {
 				editTask: 'edit-task',
 				login: 'login',
 				register: 'register',
-				logout: 'logout',
+				logout: '#logout-form',
 				tasksUrl: ''
 			}
 		}

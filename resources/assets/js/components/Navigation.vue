@@ -1,7 +1,7 @@
 <template>
 	<ul class="nav navbar-nav" :class="classes">
 		<li v-for="item in menuItems">
-			<a :href="item.url">{{ item.label }}</a>
+			<a v-on:click="itemEvent(item.event)" :href="item.url">{{ item.label }}</a>
 		</li>
 	</ul>
 </template>
@@ -49,6 +49,25 @@
 		},
 
 		methods: {
+			/**
+			 * Execute a method.
+			 * @param {String} method
+			 * @return void
+			 */
+			itemEvent: function(method) {
+				if(method && this[method].length) {
+					this[method]();
+				}
+			},
+
+			/**
+			 * Submit the logout form
+			 * @return void
+			 */
+			logout: function() {
+				event.preventDefault();
+				document.getElementById('logout-form').submit();
+			}
 		}
 	}
 </script>
