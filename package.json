@@ -8,7 +8,7 @@
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "test": "mocha-webpack --webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/js/setup.js tests/js/*.spec.js"
+    "test": "mocha-webpack --webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/JavaScript/setup.js tests/JavaScript/**/*.spec.js"
   },
   "devDependencies": {
     "axios": "^0.16.2",
@@ -21,11 +21,12 @@
     "lodash": "^4.17.4",
     "mocha": "^4.0.1",
     "mocha-webpack": "^1.0.1",
+    "moment": "^2.19.3",
+    "sinon": "^4.1.2",
     "vue": "^2.5.9",
     "vue-test-utils": "^1.0.0-beta.6",
-    "moment": "^2.19.3",
     "vuejs-datepicker": "^0.9.21",
-    "vuex": "^2.5.0"    
+    "vuex": "^2.5.0"
   },
   "dependencies": {
     "bootstrap": "^3.3.7"
