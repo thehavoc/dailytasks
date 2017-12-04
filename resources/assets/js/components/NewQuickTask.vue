@@ -44,7 +44,7 @@
 			 * @param {Object} event
 			 * @return {Promise}
 			 */
-			add: function(event) {
+			add(event) {
 				event.preventDefault();
 
 				this.task.added_to = this.date;

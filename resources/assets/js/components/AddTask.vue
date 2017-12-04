@@ -44,7 +44,7 @@
 			 * @param {Object} event
 			 * @return {Promise}
 			 */
-			add: function(event) {
+			add(event) {
 				event.preventDefault();
 
 				var vm = this;

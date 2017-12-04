@@ -22,6 +22,7 @@
 	/**
 	 * The main listing component that displays both todo and completed tasks.
 	 */
+	import { mapGetters, mapActions } from 'vuex'
 	import NewQuickTask from './NewQuickTask.vue';
 	import TasksList from './TasksList.vue';
 	import TasksMixin from '../mixins/tasks.js';
@@ -41,7 +42,7 @@
 			
 			this.addTaskUrl = this.route.getUrl('addTask', 'web')
 
-			this.$store.dispatch('tasks/get', this.date);
+			this.get(this.date);
 		},
 
 		data() {
@@ -52,12 +53,16 @@
 		},
 
 		methods: {
+			...mapActions('tasks', [
+				'get'
+			]),
+
 			/**
 			 * Set a date
 			 * @param {String} newDate
 			 * @return {String}
 			 */
-			setDate: function(newDate) {
+			setDate(newDate) {
 				newDate = this.formatDate(newDate);
 
 				return this.date = newDate;
@@ -68,7 +73,7 @@
 			 * @param {Object} tasks
 			 * @return {Object}
 			 */
-			sort: function(tasks) {
+			sort(tasks) {
 				if(tasks) {
 					return tasks.sort(function (a, b) {
 						if(a.time_slot === null){
@@ -92,19 +97,15 @@
 		},
 
 		computed: {
-			/**
-			 * Get the tasks from the store
-			 * @return {Object}
-			 */	
-			tasks: function() {
-				return this.$store.getters['tasks/tasks'];
-			},
+			...mapGetters('tasks', [
+				'tasks'
+			]),
 
 			/**
 			 * Prepare the completed tasks.
 			 * @return {Object}
 			 */
-			completed: function () {
+			completed() {
 				var tasks = this.tasks.filter(function (task) {
 					return task.completed;
 				});
@@ -116,7 +117,7 @@
 			 * Prepare the todo tasks.
 			 * @return {Object}
 			 */
-			todo: function () {
+			todo() {
 				var tasks = this.tasks.filter(function (task) {
 					return !task.completed;
 				})
@@ -130,8 +131,8 @@
 			 * Dispatch a request to the store to get the logged-in user's tasks of a selected date.
 			 * @return {Promise}
 			 */			
-			date: function(newDate) {
-				return this.$store.dispatch('tasks/get', this.date);
+			date(newDate) {
+				return this.get(this.date);
 			}
 		}
 

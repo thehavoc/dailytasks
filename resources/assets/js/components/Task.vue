@@ -68,7 +68,7 @@
 			 * @param {Boolean} status
 			 * @return {Promise}
 			 */		
-			changeStatus: function(task, status) {
+			changeStatus(task, status) {
 				task.completed = !task.completed;
 				
 				return this.$store.dispatch('tasks/update', task);				
@@ -105,7 +105,7 @@
 			 * Whether the task is past.
 			 * @return {Boolean}
 			 */					
-			past: function() {
+			past() {
 				return this.pastTask();
 			}
 		}

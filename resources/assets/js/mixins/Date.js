@@ -11,7 +11,7 @@ export default {
 		 * Get the current date in a proper format.
 		 * @return {String}
 		 */
-		getCurrentDate: function() {
+		getCurrentDate() {
 			return moment().format(this.getDateFormat());
 		},
 
@@ -20,7 +20,7 @@ export default {
 		 * @param {String} date.
 		 * @return {String}
 		 */
-		formatDate: function(date) {
+		formatDate(date) {
 			return moment(date).format(this.getDateFormat());
 		},
 
@@ -28,7 +28,7 @@ export default {
 		 * The date format used by the app.
 		 * @return {String}
 		 */
-		getDateFormat: function() {
+		getDateFormat() {
 			return 'YYYY-MM-DD';
 		}
 	}

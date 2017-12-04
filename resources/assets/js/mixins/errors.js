@@ -4,7 +4,7 @@
 
 export default {
 	computed: {
-		formErrors: function() {
+		formErrors() {
 			return this.$store.getters['errors/get'];
 		}
 	},
@@ -13,7 +13,7 @@ export default {
 		 * Whether there are any form errors.
 		 * @return {Boolean}
 		 */
-		hasErrors: function() {
+		hasErrors() {
 			return Object.keys(this.formErrors).length > 0;
 		},
 

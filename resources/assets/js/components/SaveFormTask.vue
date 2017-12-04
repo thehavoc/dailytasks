@@ -78,7 +78,7 @@
 			 * Prepare the time slots.
 			 * @return {Array} this.timeslots
 			 */
-			getTimeSlots: function(){
+			getTimeSlots(){
 				var first_slot = 8;
 				var last_slot = 19
 
@@ -107,7 +107,7 @@
 			 * @param {String} date
 			 * @return {String} this.task.added_to
 			 */
-			setTaskDate: function(date) {
+			setTaskDate(date) {
 				return this.task.added_to = this.formatDate(date);
 			},		
 		}

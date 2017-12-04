@@ -21,7 +21,7 @@
 			 * Dispatch a request to the store to clear the notification message when the "after leave" transition finishes.
 			 * @return {Promise}
 			 */		
-			afterLeave: function () {
+			afterLeave() {
 				return this.$store.commit('notification/CHANGE', '');
 				
 			},
@@ -31,7 +31,7 @@
 			 * Get the current notification message from the store.
 			 * @return {Promise}
 			 */			
-			message: function () {
+			message() {
 				return this.$store.getters['notification/get'];
 			}
 		},
@@ -40,7 +40,7 @@
 			 * Hide the current notification message after a specific period
 			 * @return void
 			 */				
-			message: function() {
+			message() {
 				if(this.message) {
 					this.show = true;
 				}

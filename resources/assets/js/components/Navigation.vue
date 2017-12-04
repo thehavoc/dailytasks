@@ -1,9 +1,11 @@
 <template>
-	<ul class="nav navbar-nav" :class="classes">
-		<li v-for="item in menuItems">
-			<a v-on:click="itemEvent(item.event)" :href="item.url">{{ item.label }}</a>
-		</li>
-	</ul>
+	<div>
+		<ul v-if="menuItems.length > 0" class="nav navbar-nav" :class="classes">
+			<li v-for="item in menuItems">
+				<a v-on:click="itemEvent(item.event)" :href="item.url">{{ item.label }}</a>
+			</li>
+		</ul>
+	</div>
 </template>
 
 <script>
@@ -32,10 +34,14 @@
 			 * Add the absolute URLs of the menu items.
 			 * @return {Object}
 			 */	
-			menuItems: function() {
-				let route = this.route;
-				let items = this.items;
+			menuItems() {
 
+				if(!this.items) {
+					return [];
+				}
+
+				var route = this.route;
+				var items = this.items;
 				items.map(function(item) {
 
 					item.url = '';
@@ -57,18 +63,20 @@
 			 * @param {String} method
 			 * @return void
 			 */
-			itemEvent: function(method) {
+			itemEvent(method) {
 				if(method && this[method].length) {
 					this[method]();
+					return true;
 				}
+
+				return false;
 			},
 
 			/**
 			 * Submit the logout form
 			 * @return void
 			 */
-			logout: function() {
-				event.preventDefault();
+			logout() {
 				document.getElementById('logout-form').submit();
 			}
 		}

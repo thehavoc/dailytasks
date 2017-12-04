@@ -84,7 +84,7 @@ export default {
 		 * @param {Object} task
 		 * @return {Promise}
 		 */
-		quickAdd: function({ commit, dispatch }, task) {
+		quickAdd({ commit, dispatch }, task) {
 			return api.post(route.getUrl('addQuickTask', 'api'), task).then(function(res) {
 				commit('PUSH', res);
 				commit('notification/CHANGE', 'A new task has been added.', { root: true });
@@ -99,7 +99,7 @@ export default {
 		 * @param {Object} task
 		 * @return {Promise}
 		 */		
-		update: function({ commit }, task) {
+		update({ commit }, task) {
 			return api.patch(route.getUrl('updateTask', 'api') + task.id, task).then(function() {
 				commit('notification/CHANGE', 'The task has been updated.', { root: true });
 			});
@@ -129,7 +129,7 @@ export default {
 		 * @param {Object} task
 		 * @return {Promise}
 		 */			
-		add: function({ commit, dispatch }, task) {
+		add({ commit, dispatch }, task) {
 			return api.post(route.getUrl('addTask', 'api'), task).then(function(res) {
 				commit('notification/CHANGE', 'A new task has been added.', { root: true });
 			}).catch(function(errors) {

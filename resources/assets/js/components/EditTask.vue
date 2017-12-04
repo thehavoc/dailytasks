@@ -43,7 +43,7 @@
 			 * @param {Object} event
 			 * @return {Promise}
 			 */
-			edit: function(event) {
+			edit(event) {
 				event.preventDefault();
 
 				return this.$store.dispatch('tasks/update', this.task);
@@ -53,7 +53,7 @@
 			 * Get the ID from a visited edit task URL.
 			 * @return {Integer}
 			 */				
-			getId: function() {
+			getId() {
 				return window.location.href.substr(window.location.href.lastIndexOf('/') + 1);			
 			}
 		}
