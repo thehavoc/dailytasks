@@ -61,7 +61,7 @@ export default {
 		 * @param {Object} date
 		 * @return {Promise}
 		 */
-		get({ commit }, date) {
+		getTasks({ commit }, date) {
 			return api.get(route.getUrl('tasks', 'api') + date).then(function(res) {
 				commit('SET', res);
 			});
@@ -74,7 +74,7 @@ export default {
 		 * @param {Integer} id
 		 * @return {Promise}
 		 */		
-		task({ commit }, id) {
+		getTask({ commit }, id) {
 			return api.get(route.getUrl('getTask', 'api') + id);
 		},		
 

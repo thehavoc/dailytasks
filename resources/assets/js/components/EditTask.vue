@@ -32,7 +32,7 @@
 		mounted() {
 			var vm = this;
 
-			this.$store.dispatch('tasks/task', this.getId()).then(function(res) {
+			this.$store.dispatch('tasks/getTask', this.getId()).then(function(res) {
 				vm.task = res;
 			});
 		},

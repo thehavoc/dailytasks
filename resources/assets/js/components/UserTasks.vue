@@ -42,7 +42,7 @@
 			
 			this.addTaskUrl = this.route.getUrl('addTask', 'web')
 
-			this.get(this.date);
+			this.getTasks(this.date);
 		},
 
 		data() {
@@ -54,7 +54,7 @@
 
 		methods: {
 			...mapActions('tasks', [
-				'get'
+				'getTasks'
 			]),
 
 			/**
@@ -132,7 +132,7 @@
 			 * @return {Promise}
 			 */			
 			date(newDate) {
-				return this.get(this.date);
+				return this.getTasks(this.date);
 			}
 		}
 
