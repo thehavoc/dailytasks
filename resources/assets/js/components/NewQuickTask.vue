@@ -54,7 +54,7 @@
 
 				this.task.added_to = this.date;
 
-				var vm = this;
+				let vm = this;
 
 				return this.quickAdd(this.task).then(function() {
 					vm.task.title = ''

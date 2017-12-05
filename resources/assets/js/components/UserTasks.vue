@@ -106,7 +106,7 @@
 			 * @return {Object}
 			 */
 			completed() {
-				var tasks = this.tasks.filter(function (task) {
+				let tasks = this.tasks.filter(function (task) {
 					return task.completed;
 				});
 
@@ -118,7 +118,7 @@
 			 * @return {Object}
 			 */
 			todo() {
-				var tasks = this.tasks.filter(function (task) {
+				let tasks = this.tasks.filter(function (task) {
 					return !task.completed;
 				})
 

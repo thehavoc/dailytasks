@@ -52,7 +52,7 @@
 			add(event) {
 				event.preventDefault();
 
-				var vm = this;
+				let vm = this;
 
 				return this.create(this.task).then(function() {
 					vm.task = vm.getDefaultTaskProperties();

@@ -40,8 +40,8 @@
 					return [];
 				}
 
-				var route = this.route;
-				var items = this.items;
+				let route = this.route;
+				let items = this.items;
 				items.map(function(item) {
 
 					item.url = '';

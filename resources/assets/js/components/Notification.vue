@@ -47,7 +47,7 @@
 					this.show = true;
 				}
 
-				var vm = this;
+				let vm = this;
 				
 				setTimeout(function() {
 					vm.show = false;

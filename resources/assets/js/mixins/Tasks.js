@@ -32,7 +32,7 @@ export default {
 		 * @return {Boolean}
 		 */
 		pastTask() {
-			var time = '23:59';
+			let time = '23:59';
 
 			if(this.task.time_slot) {
 				time = this.task.time_slot;

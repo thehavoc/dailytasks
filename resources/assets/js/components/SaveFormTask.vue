@@ -79,10 +79,10 @@
 			 * @return {Array} this.timeslots
 			 */
 			getTimeSlots(){
-				var first_slot = 8;
-				var last_slot = 19
+				let first_slot = 8;
+				let last_slot = 19
 
-				var intervals = [
+				let intervals = [
 					'00',
 					'30'
 				];
