@@ -11,8 +11,8 @@
 	 * This a component that renders the Edit a Task form. 
 	 * It also loads a child component that includes the main task fields.
 	 */
+	import { mapActions } from 'vuex'
 	import TasksMixin from '../mixins/tasks.js';
-	
 	import SaveFormTask from './SaveFormTask.vue';
 
 	export default {
@@ -32,12 +32,17 @@
 		mounted() {
 			var vm = this;
 
-			this.$store.dispatch('tasks/getTask', this.getId()).then(function(res) {
+			this.getTask(this.getId()).then(function(res) {
 				vm.task = res;
 			});
 		},
 
 		methods: {
+			...mapActions('tasks', [
+				'getTask',
+				'update'
+			]),			
+
 			/**
 			 * Dispatch a request to the store to update a task.
 			 * @param {Object} event
@@ -46,7 +51,7 @@
 			edit(event) {
 				event.preventDefault();
 
-				return this.$store.dispatch('tasks/update', this.task);
+				return this.update(this.task);
 			},
 
 			/**

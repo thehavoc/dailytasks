@@ -19,6 +19,7 @@
 	/**
 	 * This is a component that renders the Quick Add a Task form.
 	 */
+	import { mapActions } from 'vuex'
 	import TasksMixin from '../mixins/tasks.js';
 
 	export default {
@@ -39,6 +40,10 @@
 		},
 
 		methods: {
+			...mapActions('tasks', [
+				'quickAdd'
+			]),			
+
 			/**
 			 * Dispatch a request to the store to add a task.
 			 * @param {Object} event
@@ -51,7 +56,7 @@
 
 				var vm = this;
 
-				return this.$store.dispatch('tasks/quickAdd', this.task).then(function() {
+				return this.quickAdd(this.task).then(function() {
 					vm.task.title = ''
 				});
 			}

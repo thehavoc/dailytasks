@@ -14,7 +14,7 @@ export default {
 		 * @param {Object} state
 		 * @return {Object}
 		 */
-		get(state) {
+		formErrors(state) {
 			return state.errors;
 		}				
 	},

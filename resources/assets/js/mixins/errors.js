@@ -2,11 +2,13 @@
  * A mixin that provides reusable methods for handling form errors.
  */
 
+import { mapGetters } from 'vuex';
+
 export default {
 	computed: {
-		formErrors() {
-			return this.$store.getters['errors/get'];
-		}
+		...mapGetters('errors', [
+			'formErrors'
+		]),
 	},
 	methods: {
 		/**

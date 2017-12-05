@@ -10,6 +10,8 @@
 	/**
 	 * This is a component that shows a box with a message when an action completes.
 	 */			
+	import { mapGetters, mapActions } from 'vuex'
+
 	export default {
 		data() {
 			return {
@@ -17,23 +19,23 @@
 			}
 		},
 		methods: {
+			...mapActions('notification', [
+				'update',
+			]),			
+
 			/**
 			 * Dispatch a request to the store to clear the notification message when the "after leave" transition finishes.
 			 * @return {Promise}
 			 */		
 			afterLeave() {
-				return this.$store.commit('notification/CHANGE', '');
+				return this.update('');
 				
 			},
 		},
 		computed: {
-			/**
-			 * Get the current notification message from the store.
-			 * @return {Promise}
-			 */			
-			message() {
-				return this.$store.getters['notification/get'];
-			}
+			...mapGetters('notification', [
+				'message'
+			])
 		},
 		watch: {
 			/**

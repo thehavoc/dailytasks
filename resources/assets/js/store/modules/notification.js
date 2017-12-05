@@ -13,7 +13,7 @@ export default {
 		 * @param {Object} state
 		 * @return {String}
 		 */
-		get(state) {
+		message(state) {
 			return state.message;
 		}
 	},
@@ -23,9 +23,20 @@ export default {
 		 * @param {Object} state
 		 * @param {String} newMessage
 		 * @return void
+		 */	
+		CHANGE(state, message) {
+			state.message = message;
+		}
+	},
+	actions: {
+		/**
+		 * Update the message through a mutator.
+		 * @param {Object} commit
+		 * @return void
 		 */		
-		CHANGE(state, newMessage) {
-			state.message = newMessage;
+		update({commit}, message) {
+			commit('CHANGE', message);
 		}
 	}
+
 }

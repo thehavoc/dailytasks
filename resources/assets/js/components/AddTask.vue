@@ -11,6 +11,7 @@
 	 * This is a component that renders the Add a Task main form.
 	 * It loads the SaveFormTask component that includes the main task fields.
 	 */
+	import { mapActions } from 'vuex'
 	import TasksMixin from '../mixins/tasks.js';
 	import SaveFormTask from './SaveFormTask.vue';
 	
@@ -39,6 +40,10 @@
 		},
 
 		methods: {
+			...mapActions('tasks', [
+				'create',
+			]),	
+
 			/**
 			 * Dispatch a request to the store to add a task.
 			 * @param {Object} event
@@ -49,7 +54,7 @@
 
 				var vm = this;
 
-				return this.$store.dispatch('tasks/add', this.task).then(function() {
+				return this.create(this.task).then(function() {
 					vm.task = vm.getDefaultTaskProperties();
 				});
 			}

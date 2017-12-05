@@ -22,7 +22,7 @@
 	/**
 	 * The main listing component that displays both todo and completed tasks.
 	 */
-	import { mapGetters, mapActions } from 'vuex'
+	import { mapGetters, mapActions } from 'vuex';
 	import NewQuickTask from './NewQuickTask.vue';
 	import TasksList from './TasksList.vue';
 	import TasksMixin from '../mixins/tasks.js';
