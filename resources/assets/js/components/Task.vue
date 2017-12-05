@@ -36,6 +36,7 @@
 	/**
 	 * A child component that is used on the listing tasks page. The `task` prop must be used.
 	 */			
+	import { mapGetters, mapActions } from 'vuex';
 	import TasksMixin from '../mixins/tasks.js';
 	import Route from '../route/index.js';
 
@@ -62,6 +63,11 @@
 		},		
 
 		methods: {
+			...mapActions('tasks', [
+				'update',
+				'delete'
+			]),			
+
 			/**
 			 * Dispatch a request to the store to change the status of the task.
 			 * @param {Object} task
@@ -71,7 +77,7 @@
 			changeStatus(task, status) {
 				task.completed = !task.completed;
 				
-				return this.$store.dispatch('tasks/update', task);				
+				return this.update(task);				
 			},
 
 			/**
@@ -80,7 +86,7 @@
 			 */
 			remove() {
 				if(confirm('Are you sure you want to delete this item?')) {
-					return this.$store.dispatch('tasks/delete', this.task)
+					return this.delete(this.task);
 				}
 			},
 			

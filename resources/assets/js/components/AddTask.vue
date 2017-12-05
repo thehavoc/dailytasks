@@ -11,7 +11,7 @@
 	 * This is a component that renders the Add a Task main form.
 	 * It loads the SaveFormTask component that includes the main task fields.
 	 */
-	import { mapActions } from 'vuex'
+	import { mapActions } from 'vuex';
 	import TasksMixin from '../mixins/tasks.js';
 	import SaveFormTask from './SaveFormTask.vue';
 	

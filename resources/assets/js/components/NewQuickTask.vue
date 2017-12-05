@@ -1,7 +1,7 @@
 <template>
 	<div class="add-task row">
 		<div class="col-md-12">
-			<form class="add-task-form" @keydown="$store.dispatch('errors/clear')">
+			<form class="add-task-form">
 				<div class="form-group">
 					<input type="text" v-model="task.title" class="form-control text-field" placeholder="Title">					
 					

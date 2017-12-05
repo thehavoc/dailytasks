@@ -1,6 +1,6 @@
 <template>
 	<div class="add-task">
-		<form @keydown="$store.dispatch('errors/clear')">
+		<form @keydown="clearErrors()">
 			<div class="form-group">
 				<label>Title</label>
 

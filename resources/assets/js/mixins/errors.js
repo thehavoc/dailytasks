@@ -2,7 +2,7 @@
  * A mixin that provides reusable methods for handling form errors.
  */
 
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
 	computed: {
@@ -11,6 +11,10 @@ export default {
 		]),
 	},
 	methods: {
+		...mapActions('errors', [
+			'clear'
+		]),		
+
 		/**
 		 * Whether there are any form errors.
 		 * @return {Boolean}
@@ -28,7 +32,18 @@ export default {
 			if(this.formErrors[field]) {
 				return this.formErrors[field][0];
 			}
-		}		
+		},
+
+		/**
+		 * Dispatch a request to clear the errors.
+		 * @param {String} field
+		 * @return void
+		 */
+		clearErrors() {
+			if(this.formErrors) {
+				this.clear();
+			}
+		}			
 	}
 
 }

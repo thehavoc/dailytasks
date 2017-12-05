@@ -71,7 +71,7 @@
 			/**
 			 * Sort the tasks by time slots
 			 * @param {Object} tasks
-			 * @return {Object}
+			 * @return {Number}
 			 */
 			sort(tasks) {
 				if(tasks) {
