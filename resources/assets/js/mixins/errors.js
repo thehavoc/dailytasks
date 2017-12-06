@@ -29,7 +29,7 @@ export default {
 		 * @return {String}
 		 */
 		getError(field) {
-			if(this.formErrors[field]) {
+			if(this.formErrors && this.formErrors.hasOwnProperty(field)) {
 				return this.formErrors[field][0];
 			}
 		},
