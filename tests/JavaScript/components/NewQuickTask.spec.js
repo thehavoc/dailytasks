@@ -1,7 +1,8 @@
 import { shallow, createLocalVue } from 'vue-test-utils';
 import Vuex from 'vuex';
-import UserTasks from '../../../resources/assets/js/components/NewQuickTask.vue';
+import NewQuickTask from '../../../resources/assets/js/components/NewQuickTask.vue';
 import errors from '../../../resources/assets/js/store/modules/errors.js';
+import tasks from '../../../resources/assets/js/store/modules/tasks.js';
 import sinon from 'sinon';
 import expect from 'expect';
 
@@ -18,10 +19,13 @@ describe ('NewQuickTask', () => {
 
 		store = new Vuex.Store({
 			state: {},
-			getters: errors.getters
+			modules: {
+				errors,
+				tasks
+			}
 		});
 
-		wrapper = shallow(UserTasks, { 
+		wrapper = shallow(NewQuickTask, { 
 			store, 
 			localVue,
 			propsData: {
@@ -31,7 +35,7 @@ describe ('NewQuickTask', () => {
 	});
 
 	it ('adds a quick task', () => {
-		// wrapper.find('button').trigger('click');
+		wrapper.find('button').trigger('click');
 	});
 
 });
