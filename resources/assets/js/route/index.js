@@ -36,7 +36,11 @@ export default class {
 	 * @return {String}
 	 */
 	prepareUrl(path) {
-		return window.baseUrl + path;
+		if(window.baseUrl) {
+			return window.baseUrl + path;			
+		}
+
+		return path;
 	}
 
 	/**

@@ -3,6 +3,7 @@
  */
 
 import Route from '../route/index.js';
+import axios from 'axios';
 
 export default class {
 
@@ -26,17 +27,15 @@ export default class {
 		}
 
 		return new Promise((resolve, reject) => {
-			window.axios({
+			axios({
 				method: method,
 				url: url,
 				data: data
 			})
 			.then(function (response) {
-
 				resolve(response.data);
 			})
 			.catch(function (errors) {
-
 				reject(errors.response.data);
 			});	
 		});
