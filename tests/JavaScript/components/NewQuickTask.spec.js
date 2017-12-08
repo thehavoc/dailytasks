@@ -45,28 +45,6 @@ describe ('NewQuickTask', () => {
 		moxios.uninstall()
 	})
 
-	it ('does not add a quick task', (done) => {
-		let title = 'Example task title';
-
-		type('input.text-field', title);
-
-		expect(wrapper.vm.task.title).toBe(title);
-
-		moxios.stubRequest(route.getUrl('addQuickTask', 'api'), {
-			status: 400,
-			response: {
-				title: title
-			}
-		});
-
-		click('button');
-		
-		moxios.wait(() => {
-			expect(notification.state.message).toBe('');
-			done();
-		});        
-	});
-
 	it ('adds a quick task', (done) => {
 		let title = 'Example task title';
 
@@ -88,7 +66,32 @@ describe ('NewQuickTask', () => {
 			expect(wrapper.vm.task.title).not.toBe(title);
 			done();
 		});        
-	});	
+	});		
+
+	it ('does not add a quick task', (done) => {
+		let title = 'Example task title';
+		let error = 'The title field is required.';
+
+		type('input.text-field', title);
+
+		expect(wrapper.vm.task.title).toBe(title);
+
+		moxios.stubRequest(route.getUrl('addQuickTask', 'api'), {
+			status: 400,
+			response: {
+				'title': [
+					error
+				]
+			}
+		});
+
+		click('button');
+		
+		moxios.wait(() => {
+			expect(wrapper.html()).toContain(error);
+			done();
+		});        
+	});
 
 	let type = (selector, text) => {
 		let input = wrapper.find(selector);
