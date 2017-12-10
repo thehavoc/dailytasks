@@ -62,7 +62,7 @@ export default {
 		 * @return {Promise}
 		 */
 		getTasks({ commit }, date) {
-			return api.get(route.getUrl('tasks', 'api') + date).then(function(res) {
+			return api.get(route.getUrl('tasks', 'api') + date).then((res) => {
 				commit('SET', res);
 			});
 			
@@ -85,10 +85,10 @@ export default {
 		 * @return {Promise}
 		 */
 		quickAdd({ commit, dispatch }, task) {
-			return api.post(route.getUrl('addQuickTask', 'api'), task).then(function(res) {
+			return api.post(route.getUrl('addQuickTask', 'api'), task).then((res) => {
 				commit('PUSH', res);
 				dispatch('notification/update', 'A new task has been added.', { root: true });
-			}).catch(function(errors) {
+			}).catch((errors) => {
 				dispatch('errors/add', errors, { root: true });
 			});
 		},
@@ -100,7 +100,7 @@ export default {
 		 * @return {Promise}
 		 */		
 		update({ dispatch }, task) {
-			return api.patch(route.getUrl('updateTask', 'api') + task.id, task).then(function() {
+			return api.patch(route.getUrl('updateTask', 'api') + task.id, task).then(() => {
 				dispatch('notification/update', 'The task has been updated.', { root: true });
 			});
 		},
@@ -115,7 +115,7 @@ export default {
 			let index = state.tasks.indexOf(task);
 			
 			if(index > -1) {
-				return api.delete(route.getUrl('deleteTask', 'api') + task.id, task).then(function(res) {
+				return api.delete(route.getUrl('deleteTask', 'api') + task.id, task).then((res) => {
 					commit('REMOVE', index);			
 					dispatch('notification/update', 'The task has been deleted.', { root: true });
 				})
@@ -131,7 +131,7 @@ export default {
 		 * @return {Promise}
 		 */			
 		create({ commit, dispatch }, task) {
-			return api.post(route.getUrl('addTask', 'api'), task).then(function(res) {
+			return api.post(route.getUrl('addTask', 'api'), task).then((res) => {
 				dispatch('notification/update', 'A new task has been added.', { root: true });
 			}).catch(function(errors) {
 				dispatch('errors/add', errors, { root: true });

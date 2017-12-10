@@ -47,11 +47,8 @@
 					this.show = true;
 				}
 
-				let vm = this;
-				
-				setTimeout(function() {
-					vm.show = false;
-
+				setTimeout(() => {
+					this.show = false;
 				}, 1500);
 			}
 		}

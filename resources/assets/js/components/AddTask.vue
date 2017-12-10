@@ -52,10 +52,8 @@
 			add(event) {
 				event.preventDefault();
 
-				let vm = this;
-
-				return this.create(this.task).then(function() {
-					vm.task = vm.getDefaultTaskProperties();
+				return this.create(this.task).then(() => {
+					this.getDefaultTaskProperties();
 				});
 			}
 		}

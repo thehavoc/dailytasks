@@ -30,10 +30,8 @@
 		 * Load the data of an edited task.
 		 */
 		mounted() {
-			let vm = this;
-
-			this.getTask(this.getId()).then(function(res) {
-				vm.task = res;
+			this.getTask(this.getId()).then((res) => {
+				this.task = res;
 			});
 		},
 

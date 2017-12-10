@@ -42,7 +42,8 @@
 
 				let route = this.route;
 				let items = this.items;
-				items.map(function(item) {
+
+				items.map((item) => {
 
 					item.url = '';
 

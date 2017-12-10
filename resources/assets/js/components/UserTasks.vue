@@ -75,7 +75,7 @@
 			 */
 			sort(tasks) {
 				if(tasks) {
-					return tasks.sort(function (a, b) {
+					return tasks.sort((a, b) => {
 						if(a.time_slot === null){
 							return 1;
 						}
@@ -106,7 +106,7 @@
 			 * @return {Object}
 			 */
 			completed() {
-				let tasks = this.tasks.filter(function (task) {
+				let tasks = this.tasks.filter((task) => {
 					return task.completed;
 				});
 
@@ -118,7 +118,7 @@
 			 * @return {Object}
 			 */
 			todo() {
-				let tasks = this.tasks.filter(function (task) {
+				let tasks = this.tasks.filter((task) => {
 					return !task.completed;
 				})
 
