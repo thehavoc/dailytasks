@@ -35,18 +35,15 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <Navigation :items="{{ $leftMainNav }}"></Navigation>
-
-                    <!-- Right Side Of Navbar -->
-
-                    <!-- Authentication Links -->
-
                     @if (Auth::guest())
-
+                        <!-- Right Side Of Navbar -->
                         <Navigation :items="{{ $rightMainNav }}" classes="navbar-right"></Navigation>
 
                     @else
+                        <!-- Left Side Of Navbar -->
+                        <Navigation :items="{{ $leftMainNav }}"></Navigation>
+                    
+                        <!-- Right Side Of Navbar -->
                         <Navigation :items="{{ $profileMainMenu }}" classes="navbar-right"></Navigation>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">        
