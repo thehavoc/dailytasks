@@ -1,10 +1,10 @@
-import { shallow, createLocalVue } from 'vue-test-utils';
+import { shallow } from 'vue-test-utils';
 import Navigation from '../../../resources/assets/js/components/Navigation.vue';
 import sinon from 'sinon';
 import expect from 'expect';
 
 describe ('Navigation', () => {
-	var wrapper;
+	let wrapper;
 
 	beforeEach (() => {
 		wrapper = shallow(Navigation, {
@@ -13,6 +13,14 @@ describe ('Navigation', () => {
 			}			
 		});
 	});
+
+	it ('executes a custom method', () => {
+		let spy = sinon.spy(wrapper.vm, 'itemEvent');
+
+		wrapper.find('a').trigger('click');
+
+		expect(spy.called).toBe(true);
+	});	
 
 	it ('presents the menu list', () => {
 		expect(wrapper.html()).toContain('nav');
@@ -26,16 +34,8 @@ describe ('Navigation', () => {
 		expect(wrapper.html()).not.toContain('nav');
 	});
 
-	it ('executes a custom method', () => {
-		var spy = sinon.spy(wrapper.vm, 'itemEvent');
-
-		wrapper.find('a').trigger('click');
-
-		expect(spy.called).toBe(true);
-	});
-
 	function getItems() {
-		var items = [
+		let items = [
 			{
 				'route': 'login',
 				'label': 'Login'
@@ -53,5 +53,4 @@ describe ('Navigation', () => {
 		
 		return items;	
 	}
-
 });

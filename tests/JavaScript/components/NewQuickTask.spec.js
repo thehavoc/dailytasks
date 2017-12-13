@@ -43,7 +43,7 @@ describe ('NewQuickTask', () => {
 
 	afterEach(() => {
 		moxios.uninstall()
-	})
+	});
 
 	it ('adds a quick task', (done) => {
 		let title = 'Example task title';

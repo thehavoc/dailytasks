@@ -17,6 +17,7 @@ Vue.component('addtask', require('./components/AddTask.vue'));
 Vue.component('notification', require('./components/Notification.vue'));
 Vue.component('edittask', require('./components/editTask.vue'));
 Vue.component('navigation', require('./components/Navigation.vue'));
+Vue.component('collapsebutton', require('./components/CollapseButton.vue'));
 
 import store from './store'
 

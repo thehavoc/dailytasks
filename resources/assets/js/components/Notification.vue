@@ -18,6 +18,7 @@
 				show: false
 			}
 		},
+
 		methods: {
 			...mapActions('notification', [
 				'update',
@@ -32,11 +33,13 @@
 				
 			},
 		},
+
 		computed: {
 			...mapGetters('notification', [
 				'message'
 			])
 		},
+		
 		watch: {
 			/**
 			 * Hide the current notification message after a specific period
