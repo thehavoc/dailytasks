@@ -100,7 +100,7 @@ export default {
 		 * @return {Promise}
 		 */		
 		update({ dispatch }, task) {
-			return api.patch(route.getUrl('updateTask', 'api') + task.id, task).then(() => {
+			return api.patch(route.getUrl('updateTask', 'api') + task.id, task).then(() => {				
 				dispatch('notification/update', 'The task has been updated.', { root: true });
 			});
 		},

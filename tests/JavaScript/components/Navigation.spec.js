@@ -34,7 +34,7 @@ describe ('Navigation', () => {
 		expect(wrapper.html()).not.toContain('nav');
 	});
 
-	function getItems() {
+	let getItems = () => {
 		let items = [
 			{
 				'route': 'login',

@@ -37,7 +37,7 @@ describe ('NewQuickTask', () => {
 			localVue,
 			propsData: {
 				'date': '2017-12-06'
-			}	
+			}
 		});
 	});
 
@@ -63,7 +63,7 @@ describe ('NewQuickTask', () => {
 		
 		moxios.wait(() => {
 			expect(notification.state.message).toBe('A new task has been added.');
-			expect(wrapper.vm.task.title).not.toBe(title);
+			expect(wrapper.vm.task.title).not.toBe(title);			
 			done();
 		});        
 	});		
@@ -92,6 +92,7 @@ describe ('NewQuickTask', () => {
 			done();
 		});        
 	});
+
 
 	let type = (selector, text) => {
 		let input = wrapper.find(selector);

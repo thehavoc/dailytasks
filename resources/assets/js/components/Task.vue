@@ -48,7 +48,7 @@
 		data() {
 			return {
 				showDescription: false,
-				editUrl: ''				
+				editUrl: ''
 			}
 		},
 
