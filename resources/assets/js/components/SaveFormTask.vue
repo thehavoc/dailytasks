@@ -57,7 +57,7 @@
 		 * Prepare the tasks URL.
 		 * Load the time slots to the form.
 		 */
-		mounted() {
+		created() {
 			this.route = new Route();
 
 			this.tasksUrl = this.route.getUrl('tasksUrl', 'web')

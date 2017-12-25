@@ -56,7 +56,7 @@
 		 * Initialize the route class.
 		 * Prepare the edit URL of the task.
 		 */
-		mounted() {
+		created() {
 			this.route = new Route();
 
 			this.editUrl = this.route.getUrl('editTask', 'web') + '/' + this.task.id;
@@ -85,7 +85,7 @@
 			 * @return {mixed} Promise or void
 			 */
 			remove() {
-				if(confirm('Are you sure you want to delete this item?')) {
+				if(window.confirm('Are you sure you want to delete this item?')) {
 					return this.delete(this.task);
 				}
 			},

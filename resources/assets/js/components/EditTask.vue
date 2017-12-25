@@ -29,7 +29,7 @@
 		/**
 		 * Load the data of an edited task.
 		 */
-		mounted() {
+		created() {
 			this.getTask(this.getId()).then((res) => {
 				this.task = res;
 			});

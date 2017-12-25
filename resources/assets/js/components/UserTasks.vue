@@ -37,7 +37,7 @@
 		 * Get the add tasks URL.
 		 * Dispatch a request to the store to get all tasks of the current logged-in user.
 		 */
-		mounted() {
+		created() {
 			this.executeDefaultAddTaskActions();
 			
 			this.addTaskUrl = this.route.getUrl('addTask', 'web')

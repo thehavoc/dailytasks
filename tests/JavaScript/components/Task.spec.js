@@ -31,7 +31,7 @@ describe ('Task', () => {
 				tasks,
 				notification
 			}
-		});
+		});		
 
 		wrapper = shallow(Task, { 
 			attachToDocument: true,
@@ -74,6 +74,29 @@ describe ('Task', () => {
 			expect(notification.state.message).toBe('The task has been updated.');
 			done();
 		});       
+	});
+
+	it ('deletes the task', (done) => {		
+		expect(wrapper.html()).toContain(getTask().title);
+
+		sinon.stub(window, 'confirm').returns(true);
+
+		moxios.stubRequest(route.getUrl('deleteTask', 'api') + wrapper.vm.task.id, {
+			status: 200,
+			response: ''
+		});
+
+		click('button');
+
+		moxios.wait(() => {
+			expect(notification.state.message).toBe('The task has been deleted.');
+			done();
+		});       
+	});
+
+	it ('shows the edit link of the task', () => {
+		expect(wrapper.html()).toContain('Edit');
+		expect(wrapper.html()).toContain(route.getUrl('editTask', 'web') + '/' + wrapper.vm.task.id);
 	});
 
 	let getTask = () => {

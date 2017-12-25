@@ -112,15 +112,18 @@ export default {
 		 * @return {Promise}
 		 */		
 		delete({ commit, state, dispatch }, task) {
-			let index = state.tasks.indexOf(task);
 			
-			if(index > -1) {
-				return api.delete(route.getUrl('deleteTask', 'api') + task.id, task).then((res) => {
-					commit('REMOVE', index);			
-					dispatch('notification/update', 'The task has been deleted.', { root: true });
-				})
-			}
+			return api.delete(route.getUrl('deleteTask', 'api') + task.id, task).then((res) => {
+				let index = state.tasks.indexOf(task);
 
+				if(index > -1) {
+					commit('REMOVE', index);
+
+				}
+
+				dispatch('notification/update', 'The task has been deleted.', { root: true });
+			})
+				
 			return false;
 		},
 

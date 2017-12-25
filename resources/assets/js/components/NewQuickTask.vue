@@ -35,7 +35,7 @@
 		/**
 		 * Execute the default Task actions from a mixin.
 		 */
-		mounted() {
+		created() {
 			this.executeDefaultAddTaskActions();
 		},
 

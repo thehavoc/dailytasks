@@ -31,7 +31,7 @@
 		 * Get the web tasks URL.
 		 * Set a default task date.
 		 */
-		mounted() {
+		created() {
 			this.executeDefaultAddTaskActions();
 
 			this.tasksUrl = this.route.getUrl('tasksUrl', 'web')
