@@ -20,7 +20,7 @@ export default {
 		 * @return {Object}
 		 */	
 		tasks(state) {
-			return state.tasks;			
+			return state.tasks;
 		}
 	},
 	mutations: {
@@ -112,7 +112,6 @@ export default {
 		 * @return {Promise}
 		 */		
 		delete({ commit, state, dispatch }, task) {
-			
 			return api.delete(route.getUrl('deleteTask', 'api') + task.id, task).then((res) => {
 				let index = state.tasks.indexOf(task);
 
