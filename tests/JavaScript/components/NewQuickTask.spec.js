@@ -5,6 +5,7 @@ import errors from '../../../resources/assets/js/store/modules/errors.js';
 import tasks from '../../../resources/assets/js/store/modules/tasks.js';
 import notification from '../../../resources/assets/js/store/modules/notification.js';
 import sinon from 'sinon';
+import moment from 'moment';
 import moxios from 'moxios'
 import expect from 'expect';
 import Route from '../../../resources/assets/js/route/index.js';
@@ -36,7 +37,7 @@ describe ('NewQuickTask', () => {
 			store, 
 			localVue,
 			propsData: {
-				'date': '2017-12-06'
+				'date': moment().format('YYYY-MM-DD')
 			}
 		});
 	});

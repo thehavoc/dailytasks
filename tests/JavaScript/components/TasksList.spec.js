@@ -1,33 +1,26 @@
 import { shallow, createLocalVue } from 'vue-test-utils';
 import Vuex from 'vuex';
-import UserTasks from '../../../resources/assets/js/components/UserTasks.vue';
+import TasksList from '../../../resources/assets/js/components/TasksList.vue';
 import errors from '../../../resources/assets/js/store/modules/errors.js';
 import tasks from '../../../resources/assets/js/store/modules/tasks.js';
 import notification from '../../../resources/assets/js/store/modules/notification.js';
-import moxios from 'moxios';
 import moment from 'moment';
 import expect from 'expect';
-import Route from '../../../resources/assets/js/route/index.js';
 
 const localVue = createLocalVue();
 
 localVue.use(Vuex);
 
-describe ('UserTasks', () => {
+describe ('TasksList', () => {
 	let wrapper;
 	let store;
-	let route;
 	let date;
-	let apiURL;
+	let title;
 
 	beforeEach (() => {
-		moxios.install();
-
 		date = moment().format('YYYY-MM-DD');
 
-		route = new Route();
-
-		apiURL = route.getUrl('tasks', 'api') + date;
+		title = 'Example title';
 
 		store = new Vuex.Store({
 			state: {},
@@ -38,54 +31,45 @@ describe ('UserTasks', () => {
 			}
 		});		
 
-		wrapper = shallow(UserTasks, { 
+		wrapper = shallow(TasksList, { 
 			store, 
 			localVue,
 			propsData: {
-				'date': date
+				'title': title,
+				'tasks': getTasks()
 			}
 		});
 	});
 
-	afterEach(() => {
-		moxios.uninstall()
+	it ('shows the title', () => {
+		expect(wrapper.html()).toContain(title);
 	});
 
-	it ('does not show tasks', (done) => {
-		moxios.stubRequest(apiURL, {
-			status: 200,
-			response: []
+	it ('does not show the title', () => {
+		expect(wrapper.html()).toContain(title);
+
+		wrapper.setProps({
+			title: ''
 		});
 
-		moxios.wait(() => {
-			expect(wrapper.html()).toContain('There are no available tasks for this day');
-			done();
-		});
+		expect(wrapper.html()).not.toContain(title);
+	});	
+
+	it ('shows the number of tasks', () => {
+		expect(wrapper.html()).toContain(getTasks().length);
 	});
 
-	it ('contains completed tasks', (done) => {
-		moxios.stubRequest(apiURL, {
-			status: 200,
-			response: getTasks()
-		});
-
-		moxios.wait(() => {
-			expect(wrapper.vm.completed).not.toBeNull();
-			done();
-		});
+	it ('shows the tasks', () => {
+		expect(wrapper.html()).toContain('list-group-item');
 	});
 
-	it ('contains todo tasks', (done) => {
-		moxios.stubRequest(apiURL, {
-			status: 200,
-			response: getTasks()
-		});
+	it ('does not show the tasks', () => {
+		wrapper.setProps({
+			tasks: []
+		});		
 
-		moxios.wait(() => {
-			expect(wrapper.vm.todo).not.toBeNull();
-			done();
-		});
-	});
+		expect(wrapper.html()).not.toContain('list-group-item');
+	});	
 
 	let getTasks = () => {
 		return [
@@ -101,7 +85,7 @@ describe ('UserTasks', () => {
 				id: 12,
 				title: 'An example task 2',
 				added_to: date,
-				completed: 1,
+				completed: 0,
 				time_slot: '13:00',
 				description: 'The description of the task'					
 			}			
