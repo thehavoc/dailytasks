@@ -1,9 +1,11 @@
 <template>
-	<transition name="fade" v-on:after-leave="afterLeave">
-		<div class="notification-box alert alert-success" role="alert" v-show="show">
-			{{ message }}
-		</div>
-	</transition>
+	<div>
+		<transition name="fade" v-on:enter="enter">
+			<div class="notification-box alert alert-success" role="alert" v-if="message">
+				{{ message }}
+			</div>
+		</transition>
+	</div>
 </template>
 
 <script>
@@ -15,7 +17,6 @@
 	export default {
 		data() {
 			return {
-				show: false
 			}
 		},
 
@@ -25,36 +26,20 @@
 			]),			
 
 			/**
-			 * Dispatch a request to the store to clear the notification message when the "after leave" transition finishes.
-			 * @return {Promise}
+			 * Dispatch a request to the store to clear the notification message.
+			 * @return void
 			 */		
-			afterLeave() {
-				return this.update('');
-				
-			},
+			enter() {
+				setTimeout(() => {
+					this.update('');
+				}, 2000);
+			}
 		},
 
 		computed: {
 			...mapGetters('notification', [
 				'message'
 			])
-		},
-		
-		watch: {
-			/**
-			 * Hide the current notification message after a specific period
-			 * @return void
-			 */				
-			message() {
-				if(this.message) {
-					this.show = true;
-				}
-
-				setTimeout(() => {
-					this.show = false;
-				}, 1500);
-			}
 		}
 	}	
-
 </script>

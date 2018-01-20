@@ -74,24 +74,6 @@
 			 * @return {Number}
 			 */
 			sort(tasks) {
-				if(tasks) {
-					return tasks.sort((a, b) => {
-						if(a.time_slot === null){
-							return 1;
-						}
-						
-						if(b.time_slot === null){
-							return -1;
-						}
-
-						if (parseInt(a.time_slot.split(":")[0]) - parseInt(b.time_slot.split(":")[0]) === 0) {
-							return parseInt(a.time_slot.split(":")[1]) - parseInt(b.time_slot.split(":")[1]);
-						} else {
-							return parseInt(a.time_slot.split(":")[0]) - parseInt(b.time_slot.split(":")[0]);
-						}
-					});
-				}
-
 				return tasks;				
 			}
 		},

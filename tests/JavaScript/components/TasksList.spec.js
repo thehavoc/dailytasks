@@ -91,15 +91,4 @@ describe ('TasksList', () => {
 			}			
 		];
 	}
-
-	let type = (selector, text) => {
-		let input = wrapper.find(selector);
-
-		input.element.value = text;
-		input.trigger('input');
-	}
-
-	let click = (selector) => {
-		wrapper.find(selector).trigger('click');
-	}
 });

@@ -42,7 +42,7 @@ describe ('NewQuickTask', () => {
 		});
 	});
 
-	afterEach(() => {
+	afterEach (() => {
 		moxios.uninstall()
 	});
 

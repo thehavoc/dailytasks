@@ -23,7 +23,7 @@
     "mocha-webpack": "^1.0.1",
     "moment": "^2.20.1",
     "moxios": "^0.4.0",
-    "sinon": "^4.1.5",
+    "sinon": "^4.1.6",
     "vue": "^2.5.13",
     "vue-test-utils": "^1.0.0-beta.11",
     "vuejs-datepicker": "^0.9.24",
