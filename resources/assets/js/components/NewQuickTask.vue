@@ -23,9 +23,13 @@
 	import TasksMixin from '../mixins/tasks.js';
 
 	export default {
-		props: ['date'],
+		mixins: [
+			TasksMixin
+		],
 
-		mixins: [TasksMixin],
+		props: {
+			date: String
+		},
 
 		data() {
 			return {

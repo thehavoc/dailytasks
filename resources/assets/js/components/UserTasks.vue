@@ -1,13 +1,23 @@
 <template>
 	<div class="user-tasks">
-		<datepicker :value="date" v-on:selected="setDate" input-class="form-control"></datepicker>
+		<datepicker 
+			:value="date" 
+			v-on:selected="setDate" 
+			input-class="form-control"
+		/>
 		
-		<NewQuickTask :date="date"></NewQuickTask>
+		<NewQuickTask :date="date"/>
 		
 		<div class="tasks-list" v-if="tasks[0]">
-			<TasksList title="Active tasks" :tasks="todo"></TasksList>
+			<UserTasksList 
+				title="Active tasks" 
+				:tasks="todo" 
+			/>
 			
-			<TasksList title="Completed tasks" :tasks="completed"></TasksList>
+			<UserTasksList 
+				title="Completed tasks" 
+				:tasks="completed"
+			/>
 		</div>
 
 		<div v-else>
@@ -24,13 +34,18 @@
 	 */
 	import { mapGetters, mapActions } from 'vuex';
 	import NewQuickTask from './NewQuickTask.vue';
-	import TasksList from './TasksList.vue';
+	import UserTasksList from './UserTasksList.vue';
 	import TasksMixin from '../mixins/tasks.js';
 
 	export default {
-		mixins: [TasksMixin],
+		mixins: [
+			TasksMixin
+		],
 
-		components: { NewQuickTask, TasksList },
+		components: { 
+			NewQuickTask, 
+			UserTasksList 
+		},
 
 		/**
 		 * Execute the default Task actions from a mixin.
@@ -117,6 +132,5 @@
 				return this.getTasks(this.date);
 			}
 		}
-
 	}
 </script>

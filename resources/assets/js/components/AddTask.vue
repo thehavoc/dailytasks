@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<SaveFormTask :task="task"></SaveFormTask>
+		<SaveFormTask :task="task"/>
 
 		<button v-on:click="add" class="btn btn-success" :disabled="hasErrors()">Submit</button>
 	</div>
@@ -16,9 +16,13 @@
 	import SaveFormTask from './SaveFormTask.vue';
 	
 	export default {
-		mixins: [TasksMixin],
+		mixins: [
+			TasksMixin
+		],
 
-		components: { SaveFormTask },
+		components: { 
+			SaveFormTask
+		},
 		
 		data() {
 			return {

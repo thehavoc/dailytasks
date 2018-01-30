@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<ul v-if="menuItems.length > 0" class="nav navbar-nav" :class="classes">
-			<li v-for="item in menuItems">
+			<li v-for="item in menuItems" :key="item.route">
 				<a v-on:click="itemEvent(item.event)" :href="item.url">{{ item.label }}</a>
 			</li>
 		</ul>
@@ -15,11 +15,9 @@
 	import Route from '../route/index.js';
 
 	export default {
-		props: ['items', 'classes'],
-
-		data() {
-			return {
-			}
+		props: {
+			items: Array,
+			classes: String
 		},
 
 		/**

@@ -1,6 +1,6 @@
 import { shallow, createLocalVue } from 'vue-test-utils';
 import Vuex from 'vuex';
-import Task from '../../../resources/assets/js/components/Task.vue';
+import UserTasksListItem from '../../../resources/assets/js/components/UserTasksListItem.vue';
 import errors from '../../../resources/assets/js/store/modules/errors.js';
 import tasks from '../../../resources/assets/js/store/modules/tasks.js';
 import notification from '../../../resources/assets/js/store/modules/notification.js';
@@ -14,7 +14,7 @@ const localVue = createLocalVue();
 
 localVue.use(Vuex);
 
-describe ('Task', () => {
+describe ('UserTasksListItem', () => {
 	let wrapper;
 	let store;
 	let route;
@@ -33,7 +33,7 @@ describe ('Task', () => {
 			}
 		});
 
-		wrapper = shallow(Task, { 
+		wrapper = shallow(UserTasksListItem, { 
 			attachToDocument: true,
 			store, 
 			localVue,

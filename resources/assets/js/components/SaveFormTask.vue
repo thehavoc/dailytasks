@@ -27,7 +27,7 @@
 				<label>Time slot</label>
 
 				<select name="time_slot" v-model="task.time_slot">
-					<option v-for="slot in timeslots" :value="slot">
+					<option v-for="slot in timeslots" :key="slot" :value="slot">
 						{{ slot }}
 					</option>					
 				</select>
@@ -48,9 +48,13 @@
 	import Route from '../route/index.js';
 
 	export default {
-		mixins: [TasksMixin],		
+		mixins: [
+			TasksMixin
+		],		
 
-		props: ['task'],
+		props: {
+			task: Object
+		},
 
 		/**
 		 * Initialize the route class.
@@ -109,7 +113,7 @@
 			 */
 			setTaskDate(date) {
 				return this.task.added_to = this.formatDate(date);
-			},		
+			}	
 		}
 	}
 </script>

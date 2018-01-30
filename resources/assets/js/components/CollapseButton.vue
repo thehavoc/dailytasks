@@ -11,7 +11,10 @@
 	 * This is a component that shows a button that collapses a section. The `id` prop must be used.
 	 */
 	export default {
-		props: ['id', 'classes'],
+		props: {
+			id: String,
+			classes: String
+		},
 
 		methods: {
 			toggle(event) {

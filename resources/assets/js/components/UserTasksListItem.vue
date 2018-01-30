@@ -41,9 +41,13 @@
 	import Route from '../route/index.js';
 
 	export default {
-		mixins: [TasksMixin],
+		mixins: [
+			TasksMixin
+		],
 
-		props: ['task'],
+		props: {
+			task: Object
+		},
 
 		data() {
 			return {

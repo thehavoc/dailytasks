@@ -3,8 +3,8 @@
 		<h5>{{ title }} <span>({{ tasks.length }})</span></h5>
 
 		<ul class="list-group">
-			<li class="list-group-item" v-for="task in tasks">
-				<Task :task="task"></Task>
+			<li class="list-group-item" v-for="task in tasks" :key="task.id">
+				<UserTasksListItem :task="task"/>
 			</li>
 		</ul>                
 	</div>
@@ -14,12 +14,16 @@
 	/**
 	 * A child component that displays all tasks into a list. The `tasks` prop must be used.
 	 */
-	import Task from './Task.vue';
+	import UserTasksListItem from './UserTasksListItem.vue';
 
 	export default {
-		props: ['tasks', 'title'],
+		props: {
+			tasks: Array,
+			title: String
+		},
 
-		components: { Task },
+		components: {
+			UserTasksListItem
+		}
 	}
-
 </script>
