@@ -102,6 +102,8 @@ export default {
 		update({ dispatch }, task) {
 			return api.patch(route.getUrl('updateTask', 'api') + task.id, task).then(() => {				
 				dispatch('notification/update', 'The task has been updated.', { root: true });
+			}).catch(function(errors) {
+				dispatch('errors/add', errors, { root: true });
 			});
 		},
 

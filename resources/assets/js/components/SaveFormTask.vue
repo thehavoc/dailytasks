@@ -18,7 +18,12 @@
 			<div class="form-group">
 				<label>Date</label>
 
-				<datepicker :value="task.added_to" v-on:selected="setTaskDate" input-class="form-control"></datepicker>
+				<datepicker 
+					:value="task.added_to" 
+					v-on:selected="setTaskDate" 
+					name="added_to"
+					input-class="form-control"
+				/>
 
 				<div class="alert alert-danger" v-show="getError('added_to')" v-text="getError('added_to')"></div>
 			</div>
@@ -53,7 +58,7 @@
 		],		
 
 		props: {
-			task: Object
+			task: [Object, Array]
 		},
 
 		/**
@@ -72,7 +77,7 @@
 
 		data() {
 			return {
-				tasksUrl: '',
+				tasksUrl: String,
 				timeslots: []
 			}
 		},

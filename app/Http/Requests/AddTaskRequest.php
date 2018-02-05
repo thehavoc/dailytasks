@@ -25,7 +25,6 @@ class AddTaskRequest extends FormRequest
 	{
 		$rules = [
 			'title' => 'required',
-			'description' => 'required',
 			'added_to' => 'required'
 		];
 

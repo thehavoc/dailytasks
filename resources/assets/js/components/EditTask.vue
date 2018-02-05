@@ -26,7 +26,7 @@
 
 		data() {
 			return {
-				task: Object,
+				task: [Object, Function],
 			}
 		},
 

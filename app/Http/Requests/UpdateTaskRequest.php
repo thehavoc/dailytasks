@@ -29,6 +29,7 @@ class UpdateTaskRequest extends FormRequest
 
 		$rules = [
 			'id' => 'required',
+			'title' => 'required',
 		];
 
 		$rules = $user_request->rules() + $rules;

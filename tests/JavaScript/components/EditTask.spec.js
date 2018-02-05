@@ -1,10 +1,11 @@
 import { mount, createLocalVue } from 'vue-test-utils';
 import Vuex from 'vuex';
-import AddTask from '../../../resources/assets/js/components/AddTask.vue';
+import EditTask from '../../../resources/assets/js/components/EditTask.vue';
 import errors from '../../../resources/assets/js/store/modules/errors.js';
 import tasks from '../../../resources/assets/js/store/modules/tasks.js';
 import notification from '../../../resources/assets/js/store/modules/notification.js';
 import expect from 'expect';
+import moment from 'moment';
 import moxios from 'moxios';
 import Route from '../../../resources/assets/js/route/index.js';
 
@@ -12,7 +13,7 @@ const localVue = createLocalVue();
 
 localVue.use(Vuex);
 
-describe ('AddTask', () => {
+describe ('EditTask', () => {
 	let wrapper;
 	let store;
 	let route;
@@ -31,9 +32,13 @@ describe ('AddTask', () => {
 			}
 		});
 
-		wrapper = mount(AddTask, { 
+		wrapper = mount(EditTask, { 
 			store, 
 			localVue,
+		});
+
+		wrapper.setData({ 
+			task: getTask() 
 		});
 	});
 
@@ -41,10 +46,8 @@ describe ('AddTask', () => {
 		moxios.uninstall()
 	});
 
-	it ('creates a task', (done) => {
-		typeForm();
-
-		moxios.stubRequest(route.getUrl('addTask', 'api'), {
+	it ('updates a task', (done) => {
+		moxios.stubRequest(route.getUrl('updateTask', 'api') + getTask().id, {
 			status: 200,
 			response: wrapper.vm.task
 		});
@@ -52,7 +55,7 @@ describe ('AddTask', () => {
 		click('button');
 		
 		moxios.wait(() => {
-			expect(notification.state.message).toBe('A new task has been added.');
+			expect(notification.state.message).toBe('The task has been updated.');
 			done();
 		});  
 	});
@@ -60,9 +63,7 @@ describe ('AddTask', () => {
 	it ('shows errors ', (done) => {
 		let error = 'The title field is required.';
 
-		typeForm();
-
-		moxios.stubRequest(route.getUrl('addTask', 'api'), {
+		moxios.stubRequest(route.getUrl('updateTask', 'api') + getTask().id, {
 			status: 422,
 			response: {
 				title: [error]
@@ -77,21 +78,13 @@ describe ('AddTask', () => {
 		}); 
 	});
 
-	let typeForm = () => {
-		let fields = [
-			{
-				selector: 'input[name="title"]',
-				value: 'Test title'
-			},
-			{
-				selector: 'textarea[name="description"]',
-				value: 'Test description'
-			}							
-		];
-
-		fields.map((field) => {
-			type(field.selector, field.value);
-		});
+	let getTask = () => {
+		return {
+			id: 1,
+			title: 'Title',
+			description: 'Description',
+			added_to: moment().format('YYYY-MM-DD')
+		}
 	}
 
 	let type = (selector, text) => {
